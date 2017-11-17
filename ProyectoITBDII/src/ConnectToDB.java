@@ -19,7 +19,7 @@ public class ConnectToDB {
     MongoDatabase database = mongo.getDatabase("Proyecto");
     public void Conection() {  
       // Second Time Document all this 
-      database.createCollection("Student");
+      /*database.createCollection("Student");
       database.createCollection("Teacher");
       database.createCollection("License");
       database.createCollection("User");
@@ -27,7 +27,7 @@ public class ConnectToDB {
       database.createCollection("Course");
       database.createCollection("Debit");
       database.createCollection("Car");
-      
+      */
     }
     
     public String VerifyUser(String Username,String Password){
