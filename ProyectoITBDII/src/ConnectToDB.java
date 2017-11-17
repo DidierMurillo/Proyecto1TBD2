@@ -20,7 +20,7 @@ public class ConnectToDB {
     public void Conection() {  
       // Second Time Document all this 
       /*database.createCollection("Student");
-      database.createCollection("Professor");
+      database.createCollection("Teacher");
       database.createCollection("License");
       database.createCollection("User");
       database.createCollection("Test");
@@ -28,27 +28,18 @@ public class ConnectToDB {
       database.createCollection("Debit");
       database.createCollection("Car");
       */
-    /* 
-    //Update a document
-    collection.updateOne(Filters.eq("id", 1), Updates.set("likes", 150));       
-    System.out.println("Document update successfully...");  
-      
-    // Deleting the documents 
-    collection.deleteOne(Filters.eq("id", 1)); 
-    System.out.println("Document deleted successfully..."); 
-    */
-   }
+    }
     
-    public boolean VerifyUser(String Username,String Password){
+    public String VerifyUser(String Username,String Password){
         MongoCollection<Document> collection = database.getCollection("User");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("ID",1)).projection(Projections.excludeId());
         MongoCursor<Document> it = iterDoc.iterator();
         while(it.hasNext()){
-            if(it.next().getString("Username").equals(Username)){
-                return true;
+            if(it.next().getString("Username").equals(Username)&&it.next().get("Password").equals(Password)){
+                return it.next().getString("ID");
             }
         }
-        return false;
+        return "Wrong User";
     }
     
     public String GetField(String Collection,String KeyName,String Key,String FieldName){
@@ -71,6 +62,13 @@ public class ConnectToDB {
       .append("Pending Debit",0) 
       .append("TeoricalTest", false); 
       collection.insertOne(document);
+      //Creating the Student User
+      collection = database.getCollection("User");
+      document = new Document("New User", "MongoDB") 
+      .append("ID",ID)
+      .append("Username",ID+Name) 
+      .append("Password","123"); 
+      collection.insertOne(document);
       return true;
     }
     
@@ -87,7 +85,7 @@ public class ConnectToDB {
       return true;
     }
     
-    public DefaultTableModel GetAllDocuments(DefaultTableModel Model){
+    public DefaultTableModel GetAllStudentDocuments(DefaultTableModel Model){
         String[] Results=new String[8];
         MongoCollection<Document> collection = database.getCollection("Student");
         FindIterable<Document> iterDoc=collection.find().projection(Projections.excludeId());
@@ -103,9 +101,85 @@ public class ConnectToDB {
             Model.addRow(Results);
         }
         return Model;
-       
     }
-  
+    
+    //Teacher CRUD
+    
+    public boolean AddTeacherDocument(String ID,String Name,String PhoneNumber,String Level){
+      MongoCollection<Document> collection = database.getCollection("Teacher");
+      Document document = new Document("New Teacher", "MongoDB") 
+      .append("TeacherID", ID)
+      .append("Name", Name) 
+      .append("Level",Level) 
+      .append("PhoneNumber",PhoneNumber)
+      .append("Assigned Car",0); 
+      collection.insertOne(document);
+      //Creating the Teacher User
+      collection = database.getCollection("User");
+      document = new Document("New User", "MongoDB") 
+      .append("ID",ID)
+      .append("Username",ID+Name) 
+      .append("Password","1234"); 
+      collection.insertOne(document);
+      return true;
+    }
+    
+    public boolean ModifyTeacherDocument(String ID,String Name,String PhoneNumber,String Level){
+      MongoCollection<Document> collection = database.getCollection("Student");
+      collection.updateOne(Filters.eq("ID",ID), Updates.set("Name",Name), Updates.set("Level",Level));
+      collection.updateOne(Filters.eq("ID",ID), Updates.set("PhoneNumber",PhoneNumber));
+      return true;
+    }
+    
+    //Search NotAssign Methods 
+    public DefaultTableModel GetCarDocuments(DefaultTableModel Model){
+        String[] Results=new String[8];
+        MongoCollection<Document> collection = database.getCollection("Car");
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("TeacherID","0")).projection(Projections.excludeId());
+        MongoCursor<Document> it = iterDoc.iterator();
+        Document Temp=new Document();
+        while(it.hasNext()){
+            Temp=it.next();
+            Results[0]=Temp.getString("CarID");
+            Results[1]=Temp.getString("Kilometers");
+            Model.addRow(Results);
+        }
+        return Model;
+    }
+    
+    public DefaultTableModel GetCourseDocuments(DefaultTableModel Model){
+        String[] Results=new String[8];
+        MongoCollection<Document> collection = database.getCollection("Course");
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("Status","Without Teacher")).projection(Projections.excludeId());
+        MongoCursor<Document> it = iterDoc.iterator();
+        Document Temp=new Document();
+        while(it.hasNext()){
+            Temp=it.next();
+            Results[0]=Temp.getString("CourseID");
+            Results[1]=Temp.getString("Type");
+            Results[2]=Temp.getString("Level");
+            Results[3]=Temp.getString("Duration");
+            Model.addRow(Results);
+        }
+        return Model;
+    }
+    
+    public DefaultTableModel GetTestDocuments(DefaultTableModel Model){
+        String[] Results=new String[8];
+        MongoCollection<Document> collection = database.getCollection("Test");
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("Status","Without Teacher")).projection(Projections.excludeId());
+        MongoCursor<Document> it = iterDoc.iterator();
+        Document Temp=new Document();
+        while(it.hasNext()){
+            Temp=it.next();
+            Results[0]=Temp.getString("TestID");
+            Results[1]=Temp.getString("Type");
+            Results[2]=Temp.getString("Level");
+            Model.addRow(Results);
+        }
+        return Model;
+    }
+    
 } 
       
  
