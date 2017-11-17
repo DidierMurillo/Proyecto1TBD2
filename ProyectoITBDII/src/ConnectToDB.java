@@ -32,14 +32,15 @@ public class ConnectToDB {
     
     public String VerifyUser(String Username,String Password){
         MongoCollection<Document> collection = database.getCollection("User");
-        FindIterable<Document> iterDoc=collection.find(Filters.eq("ID",1)).projection(Projections.excludeId());
-        MongoCursor<Document> it = iterDoc.iterator();
-        while(it.hasNext()){
-            if(it.next().getString("Username").equals(Username)&&it.next().get("Password").equals(Password)){
-                return it.next().getString("ID");
-            }
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("Username",Username)).projection(Projections.excludeId());
+        Document document = iterDoc.first();
+        if(document.get("Password").equals(Password)){
+            //System.out.println(document.getString("ID"));
+            return document.getString("ID");
+        }else{
+            return "Wrong User";
         }
-        return "Wrong User";
+        
     }
     
     public String GetField(String Collection,String KeyName,String Key,String FieldName){
@@ -67,15 +68,18 @@ public class ConnectToDB {
       document = new Document("New User", "MongoDB") 
       .append("ID",ID)
       .append("Username",ID+Name) 
-      .append("Password","123"); 
+      .append("Password","123")
+      .append("Type","Student"); 
       collection.insertOne(document);
       return true;
     }
     
     public boolean ModifyStudentDocument(String ID,String Name,String LastName,String PhoneNumber,String Adress){
       MongoCollection<Document> collection = database.getCollection("Student");
-      collection.updateOne(Filters.eq("ID",ID), Updates.set("Name",Name), Updates.set("LastName",LastName));
-      collection.updateOne(Filters.eq("ID",ID), Updates.set("PhoneNumber",PhoneNumber), Updates.set("Adress",Adress));
+      collection.updateOne(Filters.eq("ID",ID), Updates.set("Name",Name));
+      collection.updateOne(Filters.eq("ID",ID), Updates.set("LastName",LastName));
+      collection.updateOne(Filters.eq("ID",ID), Updates.set("PhoneNumber",PhoneNumber));
+      collection.updateOne(Filters.eq("ID",ID), Updates.set("Adress",Adress));
       return true;
     }
     
@@ -119,15 +123,17 @@ public class ConnectToDB {
       document = new Document("New User", "MongoDB") 
       .append("ID",ID)
       .append("Username",ID+Name) 
-      .append("Password","1234"); 
+      .append("Password","1234")
+      .append("Type","Teacher"); 
       collection.insertOne(document);
       return true;
     }
     
     public boolean ModifyTeacherDocument(String ID,String Name,String PhoneNumber,String Level){
       MongoCollection<Document> collection = database.getCollection("Student");
-      collection.updateOne(Filters.eq("ID",ID), Updates.set("Name",Name), Updates.set("Level",Level));
+      collection.updateOne(Filters.eq("ID",ID), Updates.set("Name",Name));
       collection.updateOne(Filters.eq("ID",ID), Updates.set("PhoneNumber",PhoneNumber));
+      collection.updateOne(Filters.eq("ID",ID), Updates.set("Level",Level));
       return true;
     }
     
