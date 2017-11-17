@@ -144,6 +144,28 @@ public class MainWindow extends javax.swing.JFrame {
         ClassCostStudent = new javax.swing.JTextField();
         EnrollClassStudent = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        Teacher = new javax.swing.JFrame();
+        Teacher_Pane = new javax.swing.JTabbedPane();
+        Teacher1 = new javax.swing.JPanel();
+        lbl_teacherlastname = new javax.swing.JLabel();
+        lbl_teachername = new javax.swing.JLabel();
+        lbl_teacherid = new javax.swing.JLabel();
+        TeacherIDtxt = new javax.swing.JTextField();
+        TeacherNametxt = new javax.swing.JTextField();
+        TeacherPhonetxt = new javax.swing.JTextField();
+        lbl_teacherphone = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tbl_teacher_courses = new javax.swing.JTable();
+        lbl_teacheraddress = new javax.swing.JLabel();
+        StudentAdressStudent1 = new javax.swing.JTextField();
+        lbl_teacherclasses = new javax.swing.JLabel();
+        sep1 = new javax.swing.JSeparator();
+        TeacherLastNametxt = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        btn_change_course1 = new javax.swing.JButton();
+        lbl_teacherlevel = new javax.swing.JLabel();
+        TeacherLeveltxt = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         cb_UserType = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
@@ -1090,6 +1112,165 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(jTabbedPane_Admin1)
         );
 
+        Teacher_Pane.setBackground(new java.awt.Color(40, 80, 47));
+        Teacher_Pane.setBorder(new javax.swing.border.MatteBorder(null));
+
+        Teacher1.setBackground(new java.awt.Color(0, 0, 51));
+        Teacher1.setBorder(new javax.swing.border.MatteBorder(null));
+        Teacher1.setForeground(java.awt.Color.white);
+        Teacher1.setToolTipText("");
+
+        lbl_teacherlastname.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
+        lbl_teacherlastname.setForeground(java.awt.Color.white);
+        lbl_teacherlastname.setText("Lastname:");
+
+        lbl_teachername.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
+        lbl_teachername.setForeground(java.awt.Color.white);
+        lbl_teachername.setText("Name:");
+
+        lbl_teacherid.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
+        lbl_teacherid.setForeground(java.awt.Color.white);
+        lbl_teacherid.setText("ID:");
+
+        lbl_teacherphone.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
+        lbl_teacherphone.setForeground(java.awt.Color.white);
+        lbl_teacherphone.setText("Phone #:");
+
+        tbl_teacher_courses.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_teacher_courses.setComponentPopupMenu(jPopup_DeleteStudent);
+        jScrollPane7.setViewportView(tbl_teacher_courses);
+
+        lbl_teacheraddress.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
+        lbl_teacheraddress.setForeground(java.awt.Color.white);
+        lbl_teacheraddress.setText("Address:");
+
+        lbl_teacherclasses.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
+        lbl_teacherclasses.setForeground(java.awt.Color.white);
+        lbl_teacherclasses.setText("Classes:");
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        btn_change_course1.setText("Change Status");
+        btn_change_course1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_change_course1ActionPerformed(evt);
+            }
+        });
+
+        lbl_teacherlevel.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
+        lbl_teacherlevel.setForeground(java.awt.Color.white);
+        lbl_teacherlevel.setText("Level:");
+
+        javax.swing.GroupLayout Teacher1Layout = new javax.swing.GroupLayout(Teacher1);
+        Teacher1.setLayout(Teacher1Layout);
+        Teacher1Layout.setHorizontalGroup(
+            Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Teacher1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sep1)
+                    .addComponent(jScrollPane7)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Teacher1Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Teacher1Layout.createSequentialGroup()
+                                .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_teacherlastname)
+                                    .addComponent(lbl_teacherid))
+                                .addGap(18, 18, 18)
+                                .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(TeacherNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TeacherIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TeacherLastNametxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbl_teachername))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                        .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(Teacher1Layout.createSequentialGroup()
+                                .addComponent(lbl_teacherphone)
+                                .addGap(18, 18, 18)
+                                .addComponent(TeacherPhonetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Teacher1Layout.createSequentialGroup()
+                                .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_teacheraddress)
+                                    .addComponent(lbl_teacherlevel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(StudentAdressStudent1, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                                    .addComponent(TeacherLeveltxt))))
+                        .addGap(18, 18, 18))
+                    .addComponent(lbl_teacherclasses)
+                    .addComponent(jScrollPane2))
+                .addGap(17, 17, 17))
+            .addGroup(Teacher1Layout.createSequentialGroup()
+                .addGap(277, 277, 277)
+                .addComponent(btn_change_course1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        Teacher1Layout.setVerticalGroup(
+            Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Teacher1Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Teacher1Layout.createSequentialGroup()
+                        .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_teachername)
+                            .addComponent(TeacherNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_teacherlastname)
+                            .addComponent(TeacherLastNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TeacherIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_teacherid)
+                            .addComponent(lbl_teacherlevel)
+                            .addComponent(TeacherLeveltxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(Teacher1Layout.createSequentialGroup()
+                        .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TeacherPhonetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_teacherphone))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(StudentAdressStudent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_teacheraddress))))
+                .addGap(18, 18, 18)
+                .addComponent(lbl_teacherclasses)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sep1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(btn_change_course1)
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+
+        Teacher_Pane.addTab("Information", Teacher1);
+
+        javax.swing.GroupLayout TeacherLayout = new javax.swing.GroupLayout(Teacher.getContentPane());
+        Teacher.getContentPane().setLayout(TeacherLayout);
+        TeacherLayout.setHorizontalGroup(
+            TeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Teacher_Pane)
+        );
+        TeacherLayout.setVerticalGroup(
+            TeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Teacher_Pane)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
@@ -1317,6 +1498,10 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_AddStudent6ActionPerformed
 
+    private void btn_change_course1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_change_course1ActionPerformed
+        
+    }//GEN-LAST:event_btn_change_course1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1382,6 +1567,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel Student1;
     private javax.swing.JTextField StudentAdress;
     private javax.swing.JTextField StudentAdressStudent;
+    private javax.swing.JTextField StudentAdressStudent1;
     private javax.swing.JTextField StudentID;
     private javax.swing.JTextField StudentIDStudent;
     private javax.swing.JFrame StudentJFrame;
@@ -1391,11 +1577,20 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField StudentNameStudent;
     private javax.swing.JTextField StudentPhoneNumber;
     private javax.swing.JTextField StudentPhoneNumberStudent;
+    private javax.swing.JFrame Teacher;
+    private javax.swing.JPanel Teacher1;
     private javax.swing.JTextField TeacherID;
+    private javax.swing.JTextField TeacherIDtxt;
+    private javax.swing.JTextField TeacherLastNametxt;
     private javax.swing.JComboBox<String> TeacherLevel;
+    private javax.swing.JTextField TeacherLeveltxt;
     private javax.swing.JTextField TeacherName;
+    private javax.swing.JTextField TeacherNametxt;
     private javax.swing.JTextField TeacherPhoneNumber;
+    private javax.swing.JTextField TeacherPhonetxt;
+    private javax.swing.JTabbedPane Teacher_Pane;
     private javax.swing.JPanel Test_Class;
+    private javax.swing.JButton btn_change_course1;
     private javax.swing.JComboBox<String> cb_UserType;
     private javax.swing.JButton jButton_AddStudent;
     private javax.swing.JButton jButton_AddStudent5;
@@ -1451,9 +1646,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopup_DeleteStudent;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
@@ -1473,10 +1670,20 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTable jTable_Classes_Students;
     private javax.swing.JTable jTable_Licenses_Students;
     private javax.swing.JTable jTable_Students;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jText_StudentSearchID;
     private javax.swing.JTextField jText_UserPassword;
     private javax.swing.JTextField jText_Username;
     private javax.swing.JButton jb_loginMain1;
+    private javax.swing.JLabel lbl_teacheraddress;
+    private javax.swing.JLabel lbl_teacherclasses;
+    private javax.swing.JLabel lbl_teacherid;
+    private javax.swing.JLabel lbl_teacherlastname;
+    private javax.swing.JLabel lbl_teacherlevel;
+    private javax.swing.JLabel lbl_teachername;
+    private javax.swing.JLabel lbl_teacherphone;
+    private javax.swing.JSeparator sep1;
+    private javax.swing.JTable tbl_teacher_courses;
     // End of variables declaration//GEN-END:variables
     String AdminUsername="Juana";
     String AdminPassword="123";
