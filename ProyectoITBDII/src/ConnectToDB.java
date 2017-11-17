@@ -149,6 +149,7 @@ public class ConnectToDB {
             Results[0]=Temp.getString("CarID");
             Results[1]=Temp.getString("Kilometers");
             Model.addRow(Results);
+            //
         }
         return Model;
     }
@@ -170,6 +171,22 @@ public class ConnectToDB {
         return Model;
     }
     
+    public DefaultTableModel GetTeacherCourses(DefaultTableModel Model, String teacher_id){
+        String[] Results=new String[8];
+        MongoCollection<Document> collection = database.getCollection("Course");
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("ID", teacher_id)).projection(Projections.excludeId());
+        MongoCursor<Document> it = iterDoc.iterator();
+        Document Temp=new Document();
+        while(it.hasNext()){
+            Temp=it.next();
+            Results[0]=Temp.getString("CourseID");
+            Results[1]=Temp.getString("Type");
+            Results[2]=Temp.getString("Level");
+            Results[3]=Temp.getString("Duration");
+            Model.addRow(Results);
+        }
+        return Model;
+    }
     public DefaultTableModel GetTestDocuments(DefaultTableModel Model){
         String[] Results=new String[8];
         MongoCollection<Document> collection = database.getCollection("Test");
