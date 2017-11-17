@@ -190,8 +190,43 @@ public class ConnectToDB {
         }
         return Model;
     }
+    //JRMS
+    public boolean AddCourseDocument(String ID, String Type, String Level, String TeacherID, String Duration, double Cost){
+      MongoCollection<Document> collection = database.getCollection("Course");
+      Document document = new Document("New Course", "MongoDB") 
+      .append("CourseID", ID)
+      .append("Level",Level)
+      .append("TeacherID", TeacherID)
+      .append("Type",Type)
+      .append("Duration",Duration)
+      .append("Cost",Cost);
+      collection.insertOne(document);
+      return true;
+    }
     
-} 
-      
- 
-
+    public boolean ModifyCourseDocument(String ID, String Type, String Level, String Duration, double Cost){
+      MongoCollection<Document> collection = database.getCollection("Course");
+      collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Type",Type), Updates.set("Level",Level));
+      collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Duration",Duration), Updates.set("Cost",Cost));
+      return true;
+    }
+    
+    public boolean AddExamDocument(String ID, String Level, String Type, double Cost){
+      MongoCollection<Document> collection = database.getCollection("Course");
+      Document document = new Document("New Exam", "MongoDB") 
+      .append("ExamID", ID)
+      .append("Level",Level)
+      .append("Type",Type)
+      .append("Cost",Cost);
+      collection.insertOne(document);
+      return true;
+    }
+    
+    public boolean ModifyExamDocument(String ID, String Level, String Type, double Cost){
+      MongoCollection<Document> collection = database.getCollection("Course");
+      collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Type",Type), Updates.set("Level",Level));
+      collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Cost",Cost));
+      return true;
+    }
+    
+}
