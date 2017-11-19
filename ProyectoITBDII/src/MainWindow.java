@@ -155,17 +155,17 @@ public class MainWindow extends javax.swing.JFrame {
         TeacherPhonetxt = new javax.swing.JTextField();
         lbl_teacherphone = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        tbl_teacher_courses = new javax.swing.JTable();
+        TeacherCoursestbl = new javax.swing.JTable();
         lbl_teacheraddress = new javax.swing.JLabel();
-        StudentAdressStudent1 = new javax.swing.JTextField();
+        TeacherAddresstxt = new javax.swing.JTextField();
         lbl_teacherclasses = new javax.swing.JLabel();
         sep1 = new javax.swing.JSeparator();
         TeacherLastNametxt = new javax.swing.JTextField();
         btn_change_course1 = new javax.swing.JButton();
         lbl_teacherlevel = new javax.swing.JLabel();
         TeacherLeveltxt = new javax.swing.JTextField();
-        txt_teachercar = new javax.swing.JTextField();
-        txt_teachermileage = new javax.swing.JTextField();
+        TeacherCartxt = new javax.swing.JTextField();
+        TeacherMileagetxt = new javax.swing.JTextField();
         lbl_teacher_car = new javax.swing.JLabel();
         lbl_teacher_mileage = new javax.swing.JLabel();
         lbl_car_data = new javax.swing.JLabel();
@@ -1147,7 +1147,7 @@ public class MainWindow extends javax.swing.JFrame {
         lbl_teacherphone.setForeground(java.awt.Color.white);
         lbl_teacherphone.setText("Phone #:");
 
-        tbl_teacher_courses.setModel(new javax.swing.table.DefaultTableModel(
+        TeacherCoursestbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -1158,7 +1158,7 @@ public class MainWindow extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane7.setViewportView(tbl_teacher_courses);
+        jScrollPane7.setViewportView(TeacherCoursestbl);
 
         lbl_teacheraddress.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
         lbl_teacheraddress.setForeground(java.awt.Color.white);
@@ -1225,7 +1225,7 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addComponent(lbl_teacherlevel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(StudentAdressStudent1, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                                    .addComponent(TeacherAddresstxt, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
                                     .addComponent(TeacherLeveltxt))))
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Teacher1Layout.createSequentialGroup()
@@ -1244,11 +1244,11 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGroup(Teacher1Layout.createSequentialGroup()
                             .addComponent(lbl_teacher_mileage)
                             .addGap(58, 58, 58)
-                            .addComponent(txt_teachermileage, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TeacherMileagetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(Teacher1Layout.createSequentialGroup()
                             .addComponent(lbl_teacher_car)
                             .addGap(18, 18, 18)
-                            .addComponent(txt_teachercar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(TeacherCartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         Teacher1Layout.setVerticalGroup(
@@ -1276,7 +1276,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(lbl_teacherphone))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(StudentAdressStudent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TeacherAddresstxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_teacheraddress))))
                 .addGap(18, 18, 18)
                 .addComponent(lbl_teacherclasses)
@@ -1291,10 +1291,10 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_teacher_car)
-                    .addComponent(txt_teachercar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TeacherCartxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(Teacher1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_teachermileage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TeacherMileagetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_teacher_mileage))
                 .addContainerGap(287, Short.MAX_VALUE))
         );
@@ -1424,7 +1424,30 @@ public class MainWindow extends javax.swing.JFrame {
             }else if ("Student".equals(DB.GetField("User","ID",TempUserID,"Type"))) {
                 //MICHELLE
             }else if("Teacher".equals(DB.GetField("User","ID",TempUserID,"Type"))){
-                //SAMIR
+                TeacherNametxt.setText(DB.GetField("Teacher", "TeacherID", TempUserID, "Name"));
+                TeacherIDtxt.setText(TempUserID);
+                TeacherLastNametxt.setText(DB.GetField("Teacher","TeacherID",TempUserID,"LastName"));
+                TeacherPhonetxt.setText(DB.GetField("Teacher","TeacherID",TempUserID,"Phone"));
+                TeacherAddresstxt.setText(DB.GetField("Teacher","TeacherID",TempUserID,"Address"));
+                TeacherLeveltxt.setText(DB.GetField("Teacher","TeacherID",TempUserID,"Level"));
+                DefaultTableModel Modelo = new DefaultTableModel();
+                Modelo.addColumn("CourseID");
+                Modelo.addColumn("Type");
+                Modelo.addColumn("Level");
+                Modelo.addColumn("Duration");
+                TeacherCoursestbl.setModel(DB.GetTeacherCourses(Modelo,TempUserID));
+                /*if(DB.GetField("Car","TeacherID",TempUserID,"TeacherID")!=null)
+                {
+                    TeacherCartxt.setText(DB.GetField("Car","TeacherID",TempUserID,"CarID"));
+                    TeacherMileagetxt.setText(DB.GetField("Car","TeacherID",TempUserID,"Mileage"));
+                }
+                else
+                {
+                    TeacherCartxt.setText("None");
+                    TeacherMileagetxt.setText("None");
+                }*/
+                this.Teacher.setSize(500,400);
+                this.Teacher.setVisible(true);
             }
         } else {
             JOptionPane.showMessageDialog(this, "Incorrect Password or Username");
@@ -1592,7 +1615,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel Student1;
     private javax.swing.JTextField StudentAdress;
     private javax.swing.JTextField StudentAdressStudent;
-    private javax.swing.JTextField StudentAdressStudent1;
     private javax.swing.JTextField StudentID;
     private javax.swing.JTextField StudentIDStudent;
     private javax.swing.JFrame StudentJFrame;
@@ -1604,11 +1626,15 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField StudentPhoneNumberStudent;
     private javax.swing.JFrame Teacher;
     private javax.swing.JPanel Teacher1;
+    private javax.swing.JTextField TeacherAddresstxt;
+    private javax.swing.JTextField TeacherCartxt;
+    private javax.swing.JTable TeacherCoursestbl;
     private javax.swing.JTextField TeacherID;
     private javax.swing.JTextField TeacherIDtxt;
     private javax.swing.JTextField TeacherLastNametxt;
     private javax.swing.JComboBox<String> TeacherLevel;
     private javax.swing.JTextField TeacherLeveltxt;
+    private javax.swing.JTextField TeacherMileagetxt;
     private javax.swing.JTextField TeacherName;
     private javax.swing.JTextField TeacherNametxt;
     private javax.swing.JTextField TeacherPhoneNumber;
@@ -1707,9 +1733,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_teachername;
     private javax.swing.JLabel lbl_teacherphone;
     private javax.swing.JSeparator sep1;
-    private javax.swing.JTable tbl_teacher_courses;
-    private javax.swing.JTextField txt_teachercar;
-    private javax.swing.JTextField txt_teachermileage;
     // End of variables declaration//GEN-END:variables
     String AdminUsername="Juana";
     String AdminPassword="123";

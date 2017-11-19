@@ -1812,7 +1812,7 @@
                                           </Group>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="StudentAdressStudent1" alignment="0" pref="209" max="32767" attributes="0"/>
+                                              <Component id="TeacherAddresstxt" alignment="0" pref="209" max="32767" attributes="0"/>
                                               <Component id="TeacherLeveltxt" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -1839,12 +1839,12 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="lbl_teacher_mileage" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                                      <Component id="txt_teachermileage" min="-2" pref="175" max="-2" attributes="0"/>
+                                      <Component id="TeacherMileagetxt" min="-2" pref="175" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="lbl_teacher_car" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txt_teachercar" min="-2" pref="175" max="-2" attributes="0"/>
+                                      <Component id="TeacherCartxt" min="-2" pref="175" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1882,7 +1882,7 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="StudentAdressStudent1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TeacherAddresstxt" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lbl_teacheraddress" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1900,11 +1900,11 @@
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbl_teacher_car" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txt_teachercar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TeacherCartxt" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txt_teachermileage" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TeacherMileagetxt" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lbl_teacher_mileage" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="287" max="32767" attributes="0"/>
@@ -1970,7 +1970,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="tbl_teacher_courses">
+                    <Component class="javax.swing.JTable" name="TeacherCoursestbl">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="0" rowCount="4"/>
@@ -1993,7 +1993,7 @@
                     <Property name="text" type="java.lang.String" value="Address:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="StudentAdressStudent1">
+                <Component class="javax.swing.JTextField" name="TeacherAddresstxt">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_teacherclasses">
                   <Properties>
@@ -2031,9 +2031,9 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="TeacherLeveltxt">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txt_teachercar">
+                <Component class="javax.swing.JTextField" name="TeacherCartxt">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txt_teachermileage">
+                <Component class="javax.swing.JTextField" name="TeacherMileagetxt">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_teacher_car">
                   <Properties>
