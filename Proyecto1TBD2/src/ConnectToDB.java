@@ -148,7 +148,7 @@ public class ConnectToDB {
     public boolean AssignCarTeacher(String ID, String CarID){
         MongoCollection<Document> collection = database.getCollection("Teacher");
         collection.updateOne(Filters.eq("ID",ID), Updates.set("Assigned Car",CarID));
-        HistoryData("Assigned","CarID: "+ID+" to TeacherID: "+ID);
+        HistoryData("Assigned","CarID: "+CarID+" to TeacherID: "+ID);
         return true;
     }
     
@@ -177,6 +177,22 @@ public class ConnectToDB {
             Temp=it.next();
             Results[0]=Temp.getString("CarID");
             Results[1]=Temp.getString("Kilometers");
+            Model.addRow(Results);
+        }
+        return Model;
+    }
+    
+    public DefaultTableModel GetAllCarDocuments(DefaultTableModel Model){
+        Object[] Results=new Object[8];
+        MongoCollection<Document> collection = database.getCollection("Car");
+        FindIterable<Document> iterDoc=collection.find().projection(Projections.excludeId());
+        MongoCursor<Document> it = iterDoc.iterator();
+        Document Temp=new Document();
+        while(it.hasNext()){
+            Temp=it.next();
+            Results[0]=Temp.getString("CarID");
+            Results[1]=Temp.getString("CarLevel");
+            Results[2]=Temp.getDouble("Kilometers");
             Model.addRow(Results);
         }
         return Model;
@@ -277,6 +293,9 @@ public class ConnectToDB {
     
     public boolean AddTestDocument(String ID, String Level, String Type, double Cost){
         MongoCollection<Document> collection = database.getCollection("Test");
+        if(Filters.eq("TestID", ID).equals(ID)){
+            return false;
+        }
         Document document = new Document("New Test", "MongoDB") 
         .append("TestID", ID)
         .append("Level",Level)
@@ -336,4 +355,45 @@ public class ConnectToDB {
         }
         return Model;
     }
+<<<<<<< HEAD:ProyectoITBDII/src/ConnectToDB.java
+    
+    public boolean AddCarDocument(String ID, String Level, double Km){
+        MongoCollection<Document> collection = database.getCollection("Car");
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("CarID",ID)).projection(Projections.excludeId());
+        Document doc = iterDoc.first();
+        if(doc.get("CarID").equals(ID)){
+            return false;
+        }
+        Document document = new Document("New Car", "MongoDB") 
+        .append("CarID", ID)
+        .append("Level",Level)
+        .append("Kilometers",Km)
+        .append("TeacherID","0");
+        collection.insertOne(document);
+        HistoryData("Added","CarID: "+ID);
+        return true;
+    }
+    
+    public boolean ModifyCarDocument(String ID, String Level, double Km){
+        MongoCollection<Document> collection = database.getCollection("Car");
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("CarID",ID)).projection(Projections.excludeId());
+        Document doc = iterDoc.first();
+        if(!doc.get("CarID").equals(ID)){
+            return false;
+        }
+        collection.updateOne(Filters.eq("CarID",ID), Updates.set("Level",Level));
+        collection.updateOne(Filters.eq("CarID",ID), Updates.set("Kilometers",Km));
+        HistoryData("Modified","CarID: "+ID);
+        return true;
+    }
+    
+    public boolean DeleteCarDocument(String ID){
+        MongoCollection<Document> collection = database.getCollection("Car");
+        collection.deleteOne(Filters.eq("ID",ID));
+        HistoryData("Deleted","CarID: "+ID);
+        return true;
+    }
+}
+=======
 } 
+>>>>>>> 47a82046914b25830758f1d77394c65c6ee44d08:Proyecto1TBD2/src/ConnectToDB.java
