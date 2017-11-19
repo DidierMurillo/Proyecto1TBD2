@@ -31,8 +31,7 @@ public class ConnectToDB {
       database.createCollection("Course");
       database.createCollection("Debit");
       database.createCollection("Car");
-      database.createCollection("History");*/
-      
+      */
     }
     
     public String VerifyUser(String Username,String Password){
@@ -80,7 +79,6 @@ public class ConnectToDB {
       .append("Password","123")
       .append("Type","Student"); 
       collection.insertOne(document);
-      HistoryData("Added","StudentID: "+ID);
       return true;
     }
     
@@ -90,14 +88,12 @@ public class ConnectToDB {
       collection.updateOne(Filters.eq("ID",ID), Updates.set("LastName",LastName));
       collection.updateOne(Filters.eq("ID",ID), Updates.set("PhoneNumber",PhoneNumber));
       collection.updateOne(Filters.eq("ID",ID), Updates.addToSet("Adress","sakjfsakdfsdbfkbsdafksak"));
-      HistoryData("Modified","StudentID: "+ID);
       return true;
     }
     
     public boolean DeleteStudentDocument(String ID){
       MongoCollection<Document> collection = database.getCollection("Student");
       collection.deleteOne(Filters.eq("ID",ID));
-      HistoryData("Deleted","StudentID: "+ID);
       return true;
     }
     
@@ -138,7 +134,6 @@ public class ConnectToDB {
       .append("Password","1234")
       .append("Type","Teacher"); 
       collection.insertOne(document);
-      HistoryData("Added","TeacherID: "+ID);
       return true;
     }
     
@@ -147,7 +142,6 @@ public class ConnectToDB {
       collection.updateOne(Filters.eq("ID",ID), Updates.set("Name",Name));
       collection.updateOne(Filters.eq("ID",ID), Updates.set("PhoneNumber",PhoneNumber));
       collection.updateOne(Filters.eq("ID",ID), Updates.set("Level",Level));
-      HistoryData("Modified","TacherID: "+ID);
       return true;
     }
     
@@ -205,7 +199,7 @@ public class ConnectToDB {
     }
     
     public DefaultTableModel GetCourseDocuments(DefaultTableModel Model){
-        Object[] Results=new Object[8];
+        String[] Results=new String[8];
         MongoCollection<Document> collection = database.getCollection("Course");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("Status","Without Teacher")).projection(Projections.excludeId());
         MongoCursor<Document> it = iterDoc.iterator();
@@ -216,7 +210,6 @@ public class ConnectToDB {
             Results[1]=Temp.getString("Type");
             Results[2]=Temp.getString("Level");
             Results[3]=Temp.getString("Duration");
-            Results[4]=Temp.getDouble("Cost");
             Model.addRow(Results);
         }
         return Model;
@@ -240,6 +233,23 @@ public class ConnectToDB {
         return Model;
     }
     
+    public DefaultTableModel GetTeacherCourses(DefaultTableModel Model, String teacher_id){
+        String[] Results=new String[8];
+        MongoCollection<Document> collection = database.getCollection("Course");
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("ID", teacher_id)).projection(Projections.excludeId());
+        MongoCursor<Document> it = iterDoc.iterator();
+        Document Temp=new Document();
+        while(it.hasNext()){
+            Temp=it.next();
+            Results[0]=Temp.getString("CourseID");
+            Results[1]=Temp.getString("Type");
+            Results[2]=Temp.getString("Level");
+            Results[3]=Temp.getString("Duration");
+            Model.addRow(Results);
+        }
+        return Model;
+    }
+    
     public DefaultTableModel GetTestDocuments(DefaultTableModel Model){
         String[] Results=new String[8];
         MongoCollection<Document> collection = database.getCollection("Test");
@@ -251,11 +261,11 @@ public class ConnectToDB {
             Results[0]=Temp.getString("TestID");
             Results[1]=Temp.getString("Type");
             Results[2]=Temp.getString("Level");
-            Results[3]=Temp.getString("Cost");
             Model.addRow(Results);
         }
         return Model;
     }
+    
     //JRMS
     public boolean AddCourseDocument(String ID, String Type, String Level, String TeacherID, String Duration, double Cost){
         MongoCollection<Document> collection = database.getCollection("Course");
@@ -345,6 +355,7 @@ public class ConnectToDB {
         }
         return Model;
     }
+<<<<<<< HEAD:ProyectoITBDII/src/ConnectToDB.java
     
     public boolean AddCarDocument(String ID, String Level, double Km){
         MongoCollection<Document> collection = database.getCollection("Car");
@@ -383,3 +394,6 @@ public class ConnectToDB {
         return true;
     }
 }
+=======
+} 
+>>>>>>> 47a82046914b25830758f1d77394c65c6ee44d08:Proyecto1TBD2/src/ConnectToDB.java
