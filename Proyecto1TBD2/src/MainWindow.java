@@ -1870,16 +1870,16 @@ public class MainWindow extends javax.swing.JFrame {
                 Modelo.addColumn("Level");
                 Modelo.addColumn("Duration");
                 TeacherCoursestbl.setModel(DB.GetTeacherCourses(Modelo,TempUserID));
-                /*if(DB.GetField("Car","TeacherID",TempUserID,"TeacherID")!=null)
+                if(DB.GetField("Car","TeacherID",TempUserID,"TeacherID")!=null)
                 {
                     TeacherCartxt.setText(DB.GetField("Car","TeacherID",TempUserID,"CarID"));
-                    TeacherMileagetxt.setText(DB.GetField("Car","TeacherID",TempUserID,"Mileage"));
+                    TeacherMileagetxt.setText(DB.GetField("Car","TeacherID",TempUserID,"CarMileage"));
                 }
                 else
                 {
                     TeacherCartxt.setText("None");
                     TeacherMileagetxt.setText("None");
-                }*/
+                }
                 this.Teacher.setSize(500,400);
                 this.Teacher.setVisible(true);
             }
