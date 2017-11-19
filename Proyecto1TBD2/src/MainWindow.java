@@ -214,6 +214,23 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         table_History = new javax.swing.JTable();
         btn_HistoryRefresh = new javax.swing.JButton();
+        Cars = new javax.swing.JPanel();
+        cnp = new javax.swing.JLabel();
+        tf_CarNumberPlate = new javax.swing.JTextField();
+        ckm = new javax.swing.JLabel();
+        tf_CarKM = new javax.swing.JTextField();
+        btn_CarAdd = new javax.swing.JButton();
+        btn_CarModify = new javax.swing.JButton();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        table_Car = new javax.swing.JTable();
+        btn_CarDelete = new javax.swing.JButton();
+        btn_CarRefresh = new javax.swing.JButton();
+        btn_CarGetData = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        combox_CarLevel = new javax.swing.JComboBox<>();
+        cnpid = new javax.swing.JLabel();
+        tf_CarSearchID = new javax.swing.JTextField();
+        btn_CarSearch = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -1735,6 +1752,153 @@ public class MainWindow extends javax.swing.JFrame {
 
         jTabbedPane_Admin.addTab("History", History);
 
+        cnp.setText("Number Plate:");
+
+        ckm.setText("Kilometers:");
+
+        btn_CarAdd.setText("Add Car");
+        btn_CarAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CarAddMouseClicked(evt);
+            }
+        });
+
+        btn_CarModify.setText("Modify Car");
+        btn_CarModify.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CarModifyMouseClicked(evt);
+            }
+        });
+
+        table_Car.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane11.setViewportView(table_Car);
+
+        btn_CarDelete.setText("Delete");
+        btn_CarDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CarDeleteMouseClicked(evt);
+            }
+        });
+
+        btn_CarRefresh.setText("Refresh");
+        btn_CarRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CarRefreshMouseClicked(evt);
+            }
+        });
+
+        btn_CarGetData.setText("Get Data");
+        btn_CarGetData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CarGetDataMouseClicked(evt);
+            }
+        });
+
+        jLabel5.setText("Car Level:");
+
+        combox_CarLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----", "Level I", "Level II", "Level III" }));
+
+        cnpid.setText("Input Number Plate:");
+
+        btn_CarSearch.setText("Search");
+
+        javax.swing.GroupLayout CarsLayout = new javax.swing.GroupLayout(Cars);
+        Cars.setLayout(CarsLayout);
+        CarsLayout.setHorizontalGroup(
+            CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CarsLayout.createSequentialGroup()
+                .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CarsLayout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cnpid)
+                            .addComponent(cnp, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ckm))
+                        .addGap(18, 18, 18)
+                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CarsLayout.createSequentialGroup()
+                                .addComponent(tf_CarKM, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_CarModify, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(CarsLayout.createSequentialGroup()
+                                .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(tf_CarSearchID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                                    .addComponent(tf_CarNumberPlate, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(combox_CarLevel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(CarsLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btn_CarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(CarsLayout.createSequentialGroup()
+                                        .addGap(48, 48, 48)
+                                        .addComponent(btn_CarSearch)
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CarsLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(59, 59, 59)
+                .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btn_CarDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_CarGetData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_CarRefresh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(324, Short.MAX_VALUE))
+        );
+        CarsLayout.setVerticalGroup(
+            CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CarsLayout.createSequentialGroup()
+                .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CarsLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cnpid)
+                            .addComponent(tf_CarSearchID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_CarSearch))
+                        .addGap(18, 18, 18)
+                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cnp)
+                            .addComponent(tf_CarNumberPlate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(combox_CarLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CarsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_CarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CarsLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(btn_CarDelete)
+                        .addGap(32, 32, 32)
+                        .addComponent(btn_CarRefresh)
+                        .addGap(35, 35, 35)
+                        .addComponent(btn_CarGetData))
+                    .addGroup(CarsLayout.createSequentialGroup()
+                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CarsLayout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(ckm))
+                            .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(tf_CarKM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_CarModify, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(27, 27, 27)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(203, Short.MAX_VALUE))
+        );
+
+        jTabbedPane_Admin.addTab("Car", Cars);
+
         javax.swing.GroupLayout AdministratorLayout = new javax.swing.GroupLayout(Administrator.getContentPane());
         Administrator.getContentPane().setLayout(AdministratorLayout);
         AdministratorLayout.setHorizontalGroup(
@@ -2126,6 +2290,56 @@ public class MainWindow extends javax.swing.JFrame {
 
     }//GEN-LAST:event_HistoryMouseClicked
 
+    private void btn_CarAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CarAddMouseClicked
+        String CarID = this.tf_CarNumberPlate.getText();
+        String CarLevel = this.combox_CarLevel.getSelectedItem().toString();
+        String KM = this.tf_CarKM.getText();
+        if(!CarID.equals("") && !KM.equals("") && !CarLevel.equals("----")){
+            if(DB.AddCarDocument(CarID, CarLevel, Double.parseDouble(KM))) {
+                JOptionPane.showMessageDialog(this, "Car Added Successfully!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Number Plate already exists!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Car failed to add... \nMake sure everything is filled");
+        }
+    }//GEN-LAST:event_btn_CarAddMouseClicked
+
+    private void btn_CarModifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CarModifyMouseClicked
+        String CarID = this.tf_CarNumberPlate.getText();
+        String CarLevel = this.combox_CarLevel.getSelectedItem().toString();
+        String KM = this.tf_CarKM.getText();
+        if(!CarID.equals("") && !KM.equals("") && !CarLevel.equals("----")){
+            if(DB.ModifyCarDocument(CarID, CarLevel, Double.parseDouble(KM))) {
+                JOptionPane.showMessageDialog(this, "Car Modified Successfully!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Number Plate doesn't exists!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Car failed to modify... \nMake sure everything is filled");
+        }
+    }//GEN-LAST:event_btn_CarModifyMouseClicked
+
+    private void btn_CarDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CarDeleteMouseClicked
+        int Row = this.table_Car.getSelectedRow();
+        String IDtoErase= this.table_Car.getValueAt(Row,0).toString();
+        DB.DeleteCarDocument(IDtoErase);
+        JOptionPane.showMessageDialog(this, "Car Deleted Successfully!");
+    }//GEN-LAST:event_btn_CarDeleteMouseClicked
+
+    private void btn_CarRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CarRefreshMouseClicked
+        DefaultTableModel Modelo = new DefaultTableModel();
+        Modelo = new DefaultTableModel();
+        Modelo.addColumn("CarID");
+        Modelo.addColumn("Level");
+        Modelo.addColumn("Kilometers");
+        this.table_Car.setModel(DB.GetAllCarDocuments(Modelo));
+    }//GEN-LAST:event_btn_CarRefreshMouseClicked
+
+    private void btn_CarGetDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CarGetDataMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CarGetDataMouseClicked
+
     
     /**
      * @param args the command line arguments
@@ -2173,6 +2387,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField AssignTestID1;
     private javax.swing.JComboBox<String> AssignTestLevel1;
     private javax.swing.JComboBox<String> AssignTestType1;
+    private javax.swing.JPanel Cars;
     private javax.swing.JTextField ClassCostStudent;
     private javax.swing.JComboBox<String> Combo_EnrollClasses;
     private javax.swing.JComboBox<String> Combo_EnrollTeachers;
@@ -2215,6 +2430,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTabbedPane Teacher_Pane;
     private javax.swing.JPanel Test_Class;
     private javax.swing.JButton btn_AssignTest;
+    private javax.swing.JButton btn_CarAdd;
+    private javax.swing.JButton btn_CarDelete;
+    private javax.swing.JButton btn_CarGetData;
+    private javax.swing.JButton btn_CarModify;
+    private javax.swing.JButton btn_CarRefresh;
+    private javax.swing.JButton btn_CarSearch;
     private javax.swing.JButton btn_CourseDelete;
     private javax.swing.JButton btn_CourseGetData;
     private javax.swing.JButton btn_CourseMake;
@@ -2234,6 +2455,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel cLevel;
     private javax.swing.JLabel cType;
     private javax.swing.JLabel cid;
+    private javax.swing.JLabel ckm;
+    private javax.swing.JLabel cnp;
+    private javax.swing.JLabel cnpid;
+    private javax.swing.JComboBox<String> combox_CarLevel;
     private javax.swing.JComboBox<String> combox_CourseLevel;
     private javax.swing.JComboBox<String> combox_CourseType;
     private javax.swing.JComboBox<String> combox_ExamLevel;
@@ -2276,6 +2501,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
@@ -2297,6 +2523,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopup_DeleteStudent;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2339,6 +2566,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_teachername;
     private javax.swing.JLabel lbl_teacherphone;
     private javax.swing.JSeparator sep1;
+    private javax.swing.JTable table_Car;
     private javax.swing.JTable table_Course;
     private javax.swing.JTable table_Exam;
     private javax.swing.JTable table_History;
@@ -2348,6 +2576,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField tf_AssignTestID;
     private javax.swing.JTextField tf_AssignTestLevel;
     private javax.swing.JTextField tf_AssignTestType;
+    private javax.swing.JTextField tf_CarKM;
+    private javax.swing.JTextField tf_CarNumberPlate;
+    private javax.swing.JTextField tf_CarSearchID;
     private javax.swing.JTextField tf_CourseCost;
     private javax.swing.JTextField tf_CourseDuration;
     private javax.swing.JTextField tf_CourseID;
