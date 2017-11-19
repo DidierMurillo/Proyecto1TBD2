@@ -9,6 +9,9 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Projections;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
 import org.bson.Document;
@@ -28,7 +31,8 @@ public class ConnectToDB {
       database.createCollection("Course");
       database.createCollection("Debit");
       database.createCollection("Car");
-      */
+      database.createCollection("History");*/
+      
     }
     
     public String VerifyUser(String Username,String Password){
@@ -76,6 +80,7 @@ public class ConnectToDB {
       .append("Password","123")
       .append("Type","Student"); 
       collection.insertOne(document);
+      HistoryData("Added","StudentID: "+ID);
       return true;
     }
     
@@ -85,12 +90,14 @@ public class ConnectToDB {
       collection.updateOne(Filters.eq("ID",ID), Updates.set("LastName",LastName));
       collection.updateOne(Filters.eq("ID",ID), Updates.set("PhoneNumber",PhoneNumber));
       collection.updateOne(Filters.eq("ID",ID), Updates.addToSet("Adress","sakjfsakdfsdbfkbsdafksak"));
+      HistoryData("Modified","StudentID: "+ID);
       return true;
     }
     
     public boolean DeleteStudentDocument(String ID){
       MongoCollection<Document> collection = database.getCollection("Student");
       collection.deleteOne(Filters.eq("ID",ID));
+      HistoryData("Deleted","StudentID: "+ID);
       return true;
     }
     
@@ -131,6 +138,7 @@ public class ConnectToDB {
       .append("Password","1234")
       .append("Type","Teacher"); 
       collection.insertOne(document);
+      HistoryData("Added","TeacherID: "+ID);
       return true;
     }
     
@@ -139,7 +147,29 @@ public class ConnectToDB {
       collection.updateOne(Filters.eq("ID",ID), Updates.set("Name",Name));
       collection.updateOne(Filters.eq("ID",ID), Updates.set("PhoneNumber",PhoneNumber));
       collection.updateOne(Filters.eq("ID",ID), Updates.set("Level",Level));
+      HistoryData("Modified","TacherID: "+ID);
       return true;
+    }
+    
+    public boolean AssignCarTeacher(String ID, String CarID){
+        MongoCollection<Document> collection = database.getCollection("Teacher");
+        collection.updateOne(Filters.eq("ID",ID), Updates.set("Assigned Car",CarID));
+        HistoryData("Assigned","CarID: "+ID+" to TeacherID: "+ID);
+        return true;
+    }
+    
+    public boolean AssignCourseTeacher(String TeacherID, String CourseID){
+        MongoCollection<Document> collection = database.getCollection("Course");
+        collection.updateOne(Filters.eq("CourseID",CourseID), Updates.set("TeacherID",TeacherID));
+        HistoryData("Assigned","TeacherID: "+TeacherID+" to CourseID: "+CourseID);
+        return true;
+    }
+    
+    public boolean AssignTestTeacher(String TeacherID, String TestID){
+        MongoCollection<Document> collection = database.getCollection("Test");
+        collection.updateOne(Filters.eq("TestID",TestID), Updates.set("TeacherID",TeacherID));
+        HistoryData("Assigned","TeacherID: "+TeacherID+" to TestID: "+TestID);
+        return true;
     }
     
     //Search NotAssign Methods 
@@ -170,6 +200,7 @@ public class ConnectToDB {
             Results[1]=Temp.getString("Type");
             Results[2]=Temp.getString("Level");
             Results[3]=Temp.getString("Duration");
+            Results[4]=Temp.getString("Cost");
             Model.addRow(Results);
         }
         return Model;
@@ -186,47 +217,95 @@ public class ConnectToDB {
             Results[0]=Temp.getString("TestID");
             Results[1]=Temp.getString("Type");
             Results[2]=Temp.getString("Level");
+            Results[3]=Temp.getString("Cost");
             Model.addRow(Results);
         }
         return Model;
     }
     //JRMS
     public boolean AddCourseDocument(String ID, String Type, String Level, String TeacherID, String Duration, double Cost){
-      MongoCollection<Document> collection = database.getCollection("Course");
-      Document document = new Document("New Course", "MongoDB") 
-      .append("CourseID", ID)
-      .append("Level",Level)
-      .append("TeacherID", TeacherID)
-      .append("Type",Type)
-      .append("Duration",Duration)
-      .append("Cost",Cost);
-      collection.insertOne(document);
-      return true;
+        MongoCollection<Document> collection = database.getCollection("Course");
+        Document document = new Document("New Course", "MongoDB") 
+        .append("CourseID", ID)
+        .append("Level",Level)
+        .append("TeacherID", TeacherID)
+        .append("Type",Type)
+        .append("Duration",Duration)
+        .append("Cost",Cost);
+        collection.insertOne(document);
+        HistoryData("Added","CourseID: "+ID);
+        return true;
     }
     
     public boolean ModifyCourseDocument(String ID, String Type, String Level, String Duration, double Cost){
-      MongoCollection<Document> collection = database.getCollection("Course");
-      collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Type",Type), Updates.set("Level",Level));
-      collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Duration",Duration), Updates.set("Cost",Cost));
-      return true;
+        MongoCollection<Document> collection = database.getCollection("Course");
+        collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Type",Type));
+        collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Level",Level));
+        collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Duration",Duration));
+        collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Cost",Cost));
+        HistoryData("Modified","CourseID: "+ID);
+        return true;
     }
     
-    public boolean AddExamDocument(String ID, String Level, String Type, double Cost){
-      MongoCollection<Document> collection = database.getCollection("Course");
-      Document document = new Document("New Exam", "MongoDB") 
-      .append("ExamID", ID)
-      .append("Level",Level)
-      .append("Type",Type)
-      .append("Cost",Cost);
-      collection.insertOne(document);
-      return true;
+    public boolean AddTestDocument(String ID, String Level, String Type, double Cost){
+        MongoCollection<Document> collection = database.getCollection("Test");
+        Document document = new Document("New Test", "MongoDB") 
+        .append("TestID", ID)
+        .append("Level",Level)
+        .append("Type",Type)
+        .append("Cost",Cost);
+        collection.insertOne(document);
+        HistoryData("Added","TestID: "+ID);
+        return true;
     }
     
-    public boolean ModifyExamDocument(String ID, String Level, String Type, double Cost){
-      MongoCollection<Document> collection = database.getCollection("Course");
-      collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Type",Type), Updates.set("Level",Level));
-      collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Cost",Cost));
-      return true;
+    public boolean ModifyTestDocument(String ID, String Level, String Type, double Cost){
+        MongoCollection<Document> collection = database.getCollection("Test");
+        collection.updateOne(Filters.eq("TestID",ID), Updates.set("Type",Type));
+        collection.updateOne(Filters.eq("TestID",ID), Updates.set("Level",Level));
+        collection.updateOne(Filters.eq("TestID",ID), Updates.set("Cost",Cost));
+        HistoryData("Modified","TestID: "+ID);
+        return true;
+    }
+    public boolean DeleteCourseDocument(String ID){
+        MongoCollection<Document> collection = database.getCollection("Course");
+        collection.deleteOne(Filters.eq("ID",ID));
+        HistoryData("Deleted","CourseID: "+ID);
+        return true;
     }
     
+    public boolean DeleteTestDocument(String ID){
+        MongoCollection<Document> collection = database.getCollection("Test");
+        collection.deleteOne(Filters.eq("ID",ID));
+        HistoryData("Deleted","TestID: "+ID);
+        return true;
+    }
+    
+    public boolean HistoryData(String Action, String Data){
+        MongoCollection<Document> collection = database.getCollection("History");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        Document document = new Document("New History", "MongoDB") 
+        .append("Action", Action)
+        .append("Data", Data)
+        .append("Date", dateFormat.format(date)); 
+        collection.insertOne(document);
+        return true;
+    }
+    
+    public DefaultTableModel HistoryModel(DefaultTableModel Model){
+        String[] Results=new String[30];
+        MongoCollection<Document> collection = database.getCollection("History");
+        FindIterable<Document> iterDoc=collection.find().projection(Projections.excludeId());
+        MongoCursor<Document> it = iterDoc.iterator();
+        Document Temp=new Document();
+        while(it.hasNext()){
+            Temp=it.next();
+            Results[0]=Temp.getString("Action");
+            Results[1]=Temp.getString("Data");
+            Results[2]=Temp.getString("Date");
+            Model.addRow(Results);
+        }
+        return Model;
+    }
 }
