@@ -189,7 +189,7 @@ public class ConnectToDB {
     }
     
     public DefaultTableModel GetCourseDocuments(DefaultTableModel Model){
-        String[] Results=new String[8];
+        Object[] Results=new Object[8];
         MongoCollection<Document> collection = database.getCollection("Course");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("Status","Without Teacher")).projection(Projections.excludeId());
         MongoCursor<Document> it = iterDoc.iterator();
@@ -200,7 +200,25 @@ public class ConnectToDB {
             Results[1]=Temp.getString("Type");
             Results[2]=Temp.getString("Level");
             Results[3]=Temp.getString("Duration");
-            Results[4]=Temp.getString("Cost");
+            Results[4]=Temp.getDouble("Cost");
+            Model.addRow(Results);
+        }
+        return Model;
+    }
+    
+    public DefaultTableModel GetAllCourseDocuments(DefaultTableModel Model){
+        Object[] Results=new Object[8];
+        MongoCollection<Document> collection = database.getCollection("Course");
+        FindIterable<Document> iterDoc=collection.find().projection(Projections.excludeId());
+        MongoCursor<Document> it = iterDoc.iterator();
+        Document Temp=new Document();
+        while(it.hasNext()){
+            Temp=it.next();
+            Results[0]=Temp.getString("CourseID");
+            Results[1]=Temp.getString("Type");
+            Results[2]=Temp.getString("Level");
+            Results[3]=Temp.getString("Duration");
+            Results[4]=Temp.getDouble("Cost");
             Model.addRow(Results);
         }
         return Model;
@@ -269,7 +287,7 @@ public class ConnectToDB {
     }
     public boolean DeleteCourseDocument(String ID){
         MongoCollection<Document> collection = database.getCollection("Course");
-        collection.deleteOne(Filters.eq("ID",ID));
+        collection.deleteOne(Filters.eq("CourseID",ID));
         HistoryData("Deleted","CourseID: "+ID);
         return true;
     }
@@ -294,7 +312,7 @@ public class ConnectToDB {
     }
     
     public DefaultTableModel HistoryModel(DefaultTableModel Model){
-        String[] Results=new String[30];
+        Object[] Results=new Object[3];
         MongoCollection<Document> collection = database.getCollection("History");
         FindIterable<Document> iterDoc=collection.find().projection(Projections.excludeId());
         MongoCursor<Document> it = iterDoc.iterator();

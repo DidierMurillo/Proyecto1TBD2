@@ -141,6 +141,7 @@ public class MainWindow extends javax.swing.JFrame {
         History = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         table_History = new javax.swing.JTable();
+        btn_HistoryRefresh = new javax.swing.JButton();
         jPopup_DeleteStudent = new javax.swing.JPopupMenu();
         jMenuItem_ViewStudent = new javax.swing.JMenuItem();
         jMenuItem_DeleteStudent = new javax.swing.JMenuItem();
@@ -319,7 +320,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(StudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(StudentLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 946, Short.MAX_VALUE))
+                        .addGap(0, 947, Short.MAX_VALUE))
                     .addGroup(StudentLayout.createSequentialGroup()
                         .addGroup(StudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
@@ -633,7 +634,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(jSeparator2)
                             .addGroup(ProfessorLayout.createSequentialGroup()
                                 .addGroup(ProfessorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
                                     .addComponent(jScrollPane8))
                                 .addGroup(ProfessorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(ProfessorLayout.createSequentialGroup()
@@ -829,6 +830,8 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        cid.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
+        cid.setForeground(new java.awt.Color(255, 255, 255));
         cid.setText("Course ID:");
 
         cType.setText("Course Type:");
@@ -1140,7 +1143,15 @@ public class MainWindow extends javax.swing.JFrame {
 
             }
         ));
+        table_History.setEnabled(false);
         jScrollPane3.setViewportView(table_History);
+
+        btn_HistoryRefresh.setText("Refresh");
+        btn_HistoryRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_HistoryRefreshMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout HistoryLayout = new javax.swing.GroupLayout(History);
         History.setLayout(HistoryLayout);
@@ -1149,13 +1160,20 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(HistoryLayout.createSequentialGroup()
                 .addGap(172, 172, 172)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(290, Short.MAX_VALUE))
+                .addGap(73, 73, 73)
+                .addComponent(btn_HistoryRefresh)
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         HistoryLayout.setVerticalGroup(
             HistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HistoryLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(HistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HistoryLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(HistoryLayout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addComponent(btn_HistoryRefresh)))
                 .addContainerGap(643, Short.MAX_VALUE))
         );
 
@@ -1980,7 +1998,8 @@ public class MainWindow extends javax.swing.JFrame {
         Modelo.addColumn("Type");
         Modelo.addColumn("Level");
         Modelo.addColumn("Duration");
-        this.table_Course.setModel(DB.GetCourseDocuments(Modelo));
+        Modelo.addColumn("Cost");
+        this.table_Course.setModel(DB.GetAllCourseDocuments(Modelo));
     }//GEN-LAST:event_btn_CourseRefreshMouseClicked
 
     private void jMenuItem_DeleteCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_DeleteCourseActionPerformed
@@ -2073,13 +2092,17 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ExamDeleteMouseClicked
 
     private void HistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HistoryMouseClicked
-        DefaultTableModel Modelo = new DefaultTableModel();
+        
+    }//GEN-LAST:event_HistoryMouseClicked
+
+    private void btn_HistoryRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HistoryRefreshMouseClicked
+       DefaultTableModel Modelo = new DefaultTableModel();
         Modelo = new DefaultTableModel();
         Modelo.addColumn("Action");
         Modelo.addColumn("Data");
         Modelo.addColumn("Date");
         this.table_History.setModel(DB.HistoryModel(Modelo));
-    }//GEN-LAST:event_HistoryMouseClicked
+    }//GEN-LAST:event_btn_HistoryRefreshMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2177,6 +2200,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton btn_ExamModify;
     private javax.swing.JButton btn_ExamRefresh;
     private javax.swing.JButton btn_ExamSearch;
+    private javax.swing.JButton btn_HistoryRefresh;
     private javax.swing.JButton btn_ModifyCourse;
     private javax.swing.JButton btn_change_course1;
     private javax.swing.JLabel cCost;
