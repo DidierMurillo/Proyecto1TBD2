@@ -38,11 +38,15 @@ public class ConnectToDB {
         MongoCollection<Document> collection = database.getCollection("User");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("Username",Username)).projection(Projections.excludeId());
         Document document = iterDoc.first();
-        if(document.get("Password").equals(Password)){
-            //System.out.println(document.getString("ID"));
-            document.put("Username","Juana");
-            return document.getString("ID");
-        }else{
+        if((iterDoc.first( )!=null)){
+            if(document.get("Password").equals(Password)){
+                //System.out.println(document.getString("ID"));
+                document.put("Username","Juana");
+                return document.getString("ID");
+            }else{
+                return "Wrong User";
+            }
+        } else {
             return "Wrong User";
         }
         
@@ -60,10 +64,9 @@ public class ConnectToDB {
     public boolean AddStudentDocument(String ID,String Name,String LastName,String PhoneNumber,String Adress){
         MongoCollection<Document> collection = database.getCollection("Student");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("ID",ID)).projection(Projections.excludeId());
-          Document doc = iterDoc.first();
-          if(doc.get("ID").equals(ID)){
-              return false;
-          }
+        if(iterDoc.first() != null){
+            return false;
+        }
         BasicDBList dbl = new BasicDBList();
         dbl.add(new BasicDBObject("Adress","0"));
         Document document = new Document("Student", "MongoDB") 
@@ -128,8 +131,7 @@ public class ConnectToDB {
     public boolean AddTeacherDocument(String ID,String Name,String PhoneNumber,String Level){
         MongoCollection<Document> collection = database.getCollection("Teacher");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("TeacherID",ID)).projection(Projections.excludeId());
-        Document doc = iterDoc.first();
-        if(doc.get("TeacherID").equals(ID)){
+        if(iterDoc.first() != null){
             return false;
         }
         Document document = new Document("New Teacher", "MongoDB") 
@@ -162,13 +164,22 @@ public class ConnectToDB {
     
     public boolean AssignCarTeacher(String ID, String CarID){
         MongoCollection<Document> collection = database.getCollection("Teacher");
-        collection.updateOne(Filters.eq("ID",ID), Updates.set("Assigned Car",CarID));
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("TeacherID",ID)).projection(Projections.excludeId());
+        if(iterDoc.first() == null){
+            return false;
+        }
+        collection.updateOne(Filters.eq("TeacherID",ID), Updates.set("Assigned Car",CarID));
         HistoryData("Assigned","CarID: "+CarID+" to TeacherID: "+ID);
         return true;
     }
     
     public boolean AssignCourseTeacher(String TeacherID, String CourseID){
         MongoCollection<Document> collection = database.getCollection("Course");
+        MongoCollection<Document> collection2 = database.getCollection("Teacher");
+        FindIterable<Document> iterDoc=collection2.find(Filters.eq("TeacherID",TeacherID)).projection(Projections.excludeId());
+        if(iterDoc.first() == null){
+            return false;
+        }
         collection.updateOne(Filters.eq("CourseID",CourseID), Updates.set("TeacherID",TeacherID));
         HistoryData("Assigned","TeacherID: "+TeacherID+" to CourseID: "+CourseID);
         return true;
@@ -176,6 +187,11 @@ public class ConnectToDB {
     
     public boolean AssignTestTeacher(String TeacherID, String TestID){
         MongoCollection<Document> collection = database.getCollection("Test");
+        MongoCollection<Document> collection2 = database.getCollection("Teacher");
+        FindIterable<Document> iterDoc=collection2.find(Filters.eq("TeacherID",TeacherID)).projection(Projections.excludeId());
+        if(iterDoc.first() == null){
+            return false;
+        }
         collection.updateOne(Filters.eq("TestID",TestID), Updates.set("TeacherID",TeacherID));
         HistoryData("Assigned","TeacherID: "+TeacherID+" to TestID: "+TestID);
         return true;
@@ -200,7 +216,7 @@ public class ConnectToDB {
     
     //Search NotAssign Methods 
     public DefaultTableModel GetCarDocuments(DefaultTableModel Model){
-        String[] Results=new String[8];
+        Object[] Results=new Object[8];
         MongoCollection<Document> collection = database.getCollection("Car");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("TeacherID","0")).projection(Projections.excludeId());
         MongoCursor<Document> it = iterDoc.iterator();
@@ -208,7 +224,7 @@ public class ConnectToDB {
         while(it.hasNext()){
             Temp=it.next();
             Results[0]=Temp.getString("CarID");
-            Results[1]=Temp.getString("Kilometers");
+            Results[1]=Temp.getDouble("Kilometers");
             Model.addRow(Results);
         }
         return Model;
@@ -223,7 +239,7 @@ public class ConnectToDB {
         while(it.hasNext()){
             Temp=it.next();
             Results[0]=Temp.getString("CarID");
-            Results[1]=Temp.getString("CarLevel");
+            Results[1]=Temp.getString("Level");
             Results[2]=Temp.getDouble("Kilometers");
             Model.addRow(Results);
         }
@@ -233,7 +249,7 @@ public class ConnectToDB {
     public DefaultTableModel GetCourseDocuments(DefaultTableModel Model){
         Object[] Results=new Object[8];
         MongoCollection<Document> collection = database.getCollection("Course");
-        FindIterable<Document> iterDoc=collection.find(Filters.eq("Status","Without Teacher")).projection(Projections.excludeId());
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("TeacherID","0")).projection(Projections.excludeId());
         MongoCursor<Document> it = iterDoc.iterator();
         Document Temp=new Document();
         while(it.hasNext()){
@@ -269,7 +285,7 @@ public class ConnectToDB {
     public DefaultTableModel GetTestDocuments(DefaultTableModel Model){
         String[] Results=new String[8];
         MongoCollection<Document> collection = database.getCollection("Test");
-        FindIterable<Document> iterDoc=collection.find(Filters.eq("Status","Without Teacher")).projection(Projections.excludeId());
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("TeacherID","0")).projection(Projections.excludeId());
         MongoCursor<Document> it = iterDoc.iterator();
         Document Temp=new Document();
         while(it.hasNext()){
@@ -286,8 +302,7 @@ public class ConnectToDB {
     public boolean AddCourseDocument(String ID, String Type, String Level, String TeacherID, String Duration, double Cost){
         MongoCollection<Document> collection = database.getCollection("Course");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("CourseID",ID)).projection(Projections.excludeId());
-        Document doc = iterDoc.first();
-        if(doc.get("CourseID").equals(ID)){
+        if(iterDoc.first() != null){
             return false;
         }
         Document document = new Document("New Course", "MongoDB") 
@@ -296,6 +311,7 @@ public class ConnectToDB {
         .append("TeacherID", TeacherID)
         .append("Type",Type)
         .append("Duration",Duration)
+        .append("Status", "none")
         .append("Cost",Cost);
         collection.insertOne(document);
         HistoryData("Added","CourseID: "+ID);
@@ -315,14 +331,14 @@ public class ConnectToDB {
     public boolean AddTestDocument(String ID, String Level, String Type, double Cost){
         MongoCollection<Document> collection = database.getCollection("Test");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("TestID",ID)).projection(Projections.excludeId());
-        Document doc = iterDoc.first();
-        if(doc.get("TestID").equals(ID)){
+        if(iterDoc.first() != null){
             return false;
         }
         Document document = new Document("New Test", "MongoDB") 
         .append("TestID", ID)
         .append("Level",Level)
         .append("Type",Type)
+        .append("Status","none")
         .append("Cost",Cost);
         collection.insertOne(document);
         HistoryData("Added","TestID: "+ID);
@@ -382,8 +398,7 @@ public class ConnectToDB {
     public boolean AddCarDocument(String ID, String Level, double Km){
         MongoCollection<Document> collection = database.getCollection("Car");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("CarID",ID)).projection(Projections.excludeId());
-        Document doc = iterDoc.first();
-        if(doc.get("CarID").equals(ID)){
+        if(iterDoc.first() != null){
             return false;
         }
         Document document = new Document("New Car", "MongoDB") 
