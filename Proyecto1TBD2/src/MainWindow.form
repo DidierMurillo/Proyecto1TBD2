@@ -792,7 +792,7 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btn_change_course1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btncoursestatus" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -858,7 +858,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane7" min="-2" pref="154" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btn_change_course1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btncoursestatus" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                           <Component id="lbl_car_data" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -974,12 +974,12 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="TeacherLastNametxt">
                 </Component>
-                <Component class="javax.swing.JButton" name="btn_change_course1">
+                <Component class="javax.swing.JButton" name="btncoursestatus">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Change Status"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_change_course1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncoursestatusActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_teacherlevel">

@@ -94,7 +94,7 @@ public class MainWindow extends javax.swing.JFrame {
         lbl_teacherclasses = new javax.swing.JLabel();
         sep1 = new javax.swing.JSeparator();
         TeacherLastNametxt = new javax.swing.JTextField();
-        btn_change_course1 = new javax.swing.JButton();
+        btncoursestatus = new javax.swing.JButton();
         lbl_teacherlevel = new javax.swing.JLabel();
         TeacherLeveltxt = new javax.swing.JTextField();
         TeacherCartxt = new javax.swing.JTextField();
@@ -646,10 +646,10 @@ public class MainWindow extends javax.swing.JFrame {
         lbl_teacherclasses.setForeground(java.awt.Color.white);
         lbl_teacherclasses.setText("Classes:");
 
-        btn_change_course1.setText("Change Status");
-        btn_change_course1.addActionListener(new java.awt.event.ActionListener() {
+        btncoursestatus.setText("Change Status");
+        btncoursestatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_change_course1ActionPerformed(evt);
+                btncoursestatusActionPerformed(evt);
             }
         });
 
@@ -712,7 +712,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Teacher1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_change_course1)
+                .addComponent(btncoursestatus)
                 .addGap(170, 170, 170))
             .addGroup(Teacher1Layout.createSequentialGroup()
                 .addGap(62, 62, 62)
@@ -763,7 +763,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_change_course1)
+                .addComponent(btncoursestatus)
                 .addGap(7, 7, 7)
                 .addComponent(lbl_car_data)
                 .addGap(27, 27, 27)
@@ -2028,12 +2028,7 @@ public class MainWindow extends javax.swing.JFrame {
                 TeacherPhonetxt.setText(DB.GetField("Teacher","TeacherID",TempUserID,"Phone"));
                 TeacherAddresstxt.setText(DB.GetField("Teacher","TeacherID",TempUserID,"Address"));
                 TeacherLeveltxt.setText(DB.GetField("Teacher","TeacherID",TempUserID,"Level"));
-                DefaultTableModel Modelo = new DefaultTableModel();
-                Modelo.addColumn("CourseID");
-                Modelo.addColumn("Type");
-                Modelo.addColumn("Level");
-                Modelo.addColumn("Duration");
-                TeacherCoursestbl.setModel(DB.GetTeacherCourses(Modelo,TempUserID));
+                refreshTeacherCourses(TempUserID);
                 if(DB.GetField("Car","TeacherID",TempUserID,"TeacherID")!=null)
                 {
                     TeacherCartxt.setText(DB.GetField("Car","TeacherID",TempUserID,"CarID"));
@@ -2053,6 +2048,19 @@ public class MainWindow extends javax.swing.JFrame {
             
     }//GEN-LAST:event_jb_loginMain1ActionPerformed
 
+    private boolean refreshTeacherCourses(String TempUserID)
+    {
+        DefaultTableModel Modelo = new DefaultTableModel();
+        Modelo.addColumn("CourseID");
+        Modelo.addColumn("Type");
+        Modelo.addColumn("Level");
+        Modelo.addColumn("Duration");
+        Modelo.addColumn("Cost");
+        Modelo.addColumn("Status");
+        TeacherCoursestbl.setModel(DB.GetTeacherCourses(Modelo,TempUserID));
+        return true;
+    }
+    
     private void jMenuItem_ViewStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_ViewStudentActionPerformed
         
     }//GEN-LAST:event_jMenuItem_ViewStudentActionPerformed
@@ -2076,9 +2084,17 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_AddStudent6ActionPerformed
 
-    private void btn_change_course1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_change_course1ActionPerformed
-
-    }//GEN-LAST:event_btn_change_course1ActionPerformed
+    private void btncoursestatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncoursestatusActionPerformed
+        int Row = TeacherCoursestbl.getSelectedRow();
+        String CourseID = TeacherCoursestbl.getValueAt(Row, 0).toString();
+        if(DB.ChangeCourseStatus(CourseID))
+        {
+            JOptionPane.showMessageDialog(this,"Course status has been changed succesfully");
+            refreshTeacherCourses(DB.GetField("Course", "CourseID", CourseID, "TeacherID"));
+        }
+        else
+            JOptionPane.showMessageDialog(this,"Course has been finalized, status can't be changed");
+    }//GEN-LAST:event_btncoursestatusActionPerformed
 
     private void jMenuItem_DeleteCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_DeleteCourseActionPerformed
 
@@ -2449,7 +2465,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton btn_ExamSearch;
     private javax.swing.JButton btn_HistoryRefresh;
     private javax.swing.JButton btn_ModifyCourse;
-    private javax.swing.JButton btn_change_course1;
+    private javax.swing.JButton btncoursestatus;
     private javax.swing.JLabel cCost;
     private javax.swing.JLabel cIID;
     private javax.swing.JLabel cLevel;

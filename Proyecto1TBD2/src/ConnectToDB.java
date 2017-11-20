@@ -184,7 +184,7 @@ public class ConnectToDB {
     public DefaultTableModel GetTeacherCourses(DefaultTableModel Model, String teacher_id){
         String[] Results=new String[8];
         MongoCollection<Document> collection = database.getCollection("Course");
-        FindIterable<Document> iterDoc=collection.find(Filters.eq("ID", teacher_id)).projection(Projections.excludeId());
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("TeacherID", teacher_id)).projection(Projections.excludeId());
         MongoCursor<Document> it = iterDoc.iterator();
         Document Temp=new Document();
         while(it.hasNext()){
@@ -193,6 +193,8 @@ public class ConnectToDB {
             Results[1]=Temp.getString("Type");
             Results[2]=Temp.getString("Level");
             Results[3]=Temp.getString("Duration");
+            Results[4]=Temp.getString("Cost");
+            Results[5]=Temp.getString("Status");
             Model.addRow(Results);
         }
         return Model;
@@ -243,6 +245,7 @@ public class ConnectToDB {
             Results[2]=Temp.getString("Level");
             Results[3]=Temp.getString("Duration");
             Results[4]=Temp.getDouble("Cost");
+            Results[5]=Temp.getString("Status");
             Model.addRow(Results);
         }
         return Model;
@@ -261,6 +264,7 @@ public class ConnectToDB {
             Results[2]=Temp.getString("Level");
             Results[3]=Temp.getString("Duration");
             Results[4]=Temp.getDouble("Cost");
+            Results[5]=Temp.getString("Status");
             Model.addRow(Results);
         }
         return Model;
@@ -296,7 +300,8 @@ public class ConnectToDB {
         .append("TeacherID", TeacherID)
         .append("Type",Type)
         .append("Duration",Duration)
-        .append("Cost",Cost);
+        .append("Cost",Cost)
+        .append("Status","Ongoing");
         collection.insertOne(document);
         HistoryData("Added","CourseID: "+ID);
         return true;
@@ -309,6 +314,24 @@ public class ConnectToDB {
         collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Duration",Duration));
         collection.updateOne(Filters.eq("CourseID",ID), Updates.set("Cost",Cost));
         HistoryData("Modified","CourseID: "+ID);
+        return true;
+    }
+    
+    public boolean ChangeCourseStatus(String ID)
+    {
+        MongoCollection<Document> collection = database.getCollection("Course");
+        if(GetField("Course", "CourseID", ID, "Status").equals("Ongoing"))
+        {
+            collection.updateOne(Filters.eq("CourseID", ID),Updates.set("Status", "Exams"));
+        }
+        else if(GetField("Course","CourseID",ID,"Status").equals("Exams"))
+        {
+            collection.updateOne(Filters.eq("CourseID", ID),Updates.set("Status", "Finalized"));
+        }
+        else
+        {
+            return false;
+        }
         return true;
     }
     
