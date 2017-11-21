@@ -21,6 +21,7 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         DB.Conection();
+        this.combox_ExamLevel.setEnabled(false);
     }
 
     /**
@@ -32,11 +33,6 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopup_DeleteStudent = new javax.swing.JPopupMenu();
-        jMenuItem_ViewStudent = new javax.swing.JMenuItem();
-        jMenuItem_DeleteStudent = new javax.swing.JMenuItem();
-        jPopupMenu_GetData = new javax.swing.JPopupMenu();
-        jMenuItem_GetData = new javax.swing.JMenuItem();
         StudentJFrame = new javax.swing.JFrame();
         jTabbedPane_Admin1 = new javax.swing.JTabbedPane();
         Student1 = new javax.swing.JPanel();
@@ -109,8 +105,6 @@ public class MainWindow extends javax.swing.JFrame {
         lbl_teacher_car = new javax.swing.JLabel();
         lbl_teacher_mileage = new javax.swing.JLabel();
         lbl_car_data = new javax.swing.JLabel();
-        Popup_DeleteCourse = new javax.swing.JPopupMenu();
-        jMenuItem_DeleteCourse = new javax.swing.JMenuItem();
         Administrator = new javax.swing.JFrame();
         jTabbedPane_Admin = new javax.swing.JTabbedPane();
         Professor = new javax.swing.JPanel();
@@ -176,23 +170,6 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         StudentLastName = new javax.swing.JTextField();
-        Cars = new javax.swing.JPanel();
-        cnp = new javax.swing.JLabel();
-        tf_CarNumberPlate = new javax.swing.JTextField();
-        ckm = new javax.swing.JLabel();
-        tf_CarKM = new javax.swing.JTextField();
-        btn_CarAdd = new javax.swing.JButton();
-        btn_CarModify = new javax.swing.JButton();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        table_Car = new javax.swing.JTable();
-        btn_CarDelete = new javax.swing.JButton();
-        btn_CarRefresh = new javax.swing.JButton();
-        btn_CarGetData = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        combox_CarLevel = new javax.swing.JComboBox<>();
-        cnpid = new javax.swing.JLabel();
-        tf_CarSearchID = new javax.swing.JTextField();
-        btn_CarSearch = new javax.swing.JButton();
         Test_Class = new javax.swing.JPanel();
         EID = new javax.swing.JLabel();
         tf_ExamID = new javax.swing.JTextField();
@@ -213,7 +190,7 @@ public class MainWindow extends javax.swing.JFrame {
         cCost = new javax.swing.JLabel();
         tf_CourseCost = new javax.swing.JTextField();
         btn_CourseMake = new javax.swing.JButton();
-        btn_ModifyCourse = new javax.swing.JButton();
+        btn_CourseModify = new javax.swing.JButton();
         btn_ExamModify = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         tf_CourseDuration = new javax.swing.JTextField();
@@ -233,6 +210,23 @@ public class MainWindow extends javax.swing.JFrame {
         tf_ExamInputID = new javax.swing.JTextField();
         btn_CourseSearch = new javax.swing.JButton();
         btn_ExamSearch = new javax.swing.JButton();
+        Cars = new javax.swing.JPanel();
+        cnp = new javax.swing.JLabel();
+        tf_CarNumberPlate = new javax.swing.JTextField();
+        ckm = new javax.swing.JLabel();
+        tf_CarKM = new javax.swing.JTextField();
+        btn_CarAdd = new javax.swing.JButton();
+        btn_CarModify = new javax.swing.JButton();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        table_Car = new javax.swing.JTable();
+        btn_CarDelete = new javax.swing.JButton();
+        btn_CarRefresh = new javax.swing.JButton();
+        btn_CarGetData = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        combox_CarLevel = new javax.swing.JComboBox<>();
+        cnpid = new javax.swing.JLabel();
+        tf_CarSearchID = new javax.swing.JTextField();
+        btn_CarSearch = new javax.swing.JButton();
         History = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         table_History = new javax.swing.JTable();
@@ -243,6 +237,13 @@ public class MainWindow extends javax.swing.JFrame {
         GetCourse = new javax.swing.JMenuItem();
         ViewTest = new javax.swing.JPopupMenu();
         GetTest = new javax.swing.JMenuItem();
+        jPopupMenu_GetData = new javax.swing.JPopupMenu();
+        jMenuItem_GetData = new javax.swing.JMenuItem();
+        jPopup_DeleteStudent = new javax.swing.JPopupMenu();
+        jMenuItem_ViewStudent = new javax.swing.JMenuItem();
+        jMenuItem_DeleteStudent = new javax.swing.JMenuItem();
+        Popup_DeleteCourse = new javax.swing.JPopupMenu();
+        jMenuItem_DeleteCourse = new javax.swing.JMenuItem();
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -252,30 +253,6 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jText_UserPassword = new javax.swing.JTextField();
-
-        jMenuItem_ViewStudent.setText("Quick View");
-        jMenuItem_ViewStudent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_ViewStudentActionPerformed(evt);
-            }
-        });
-        jPopup_DeleteStudent.add(jMenuItem_ViewStudent);
-
-        jMenuItem_DeleteStudent.setText("DeleteEmployee");
-        jMenuItem_DeleteStudent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_DeleteStudentActionPerformed(evt);
-            }
-        });
-        jPopup_DeleteStudent.add(jMenuItem_DeleteStudent);
-
-        jMenuItem_GetData.setText("See Data");
-        jMenuItem_GetData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_GetDataActionPerformed(evt);
-            }
-        });
-        jPopupMenu_GetData.add(jMenuItem_GetData);
 
         jTabbedPane_Admin1.setBackground(new java.awt.Color(40, 80, 47));
         jTabbedPane_Admin1.setBorder(new javax.swing.border.MatteBorder(null));
@@ -871,14 +848,6 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(Teacher_Pane)
         );
 
-        jMenuItem_DeleteCourse.setText("jMenuItem1");
-        jMenuItem_DeleteCourse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_DeleteCourseActionPerformed(evt);
-            }
-        });
-        Popup_DeleteCourse.add(jMenuItem_DeleteCourse);
-
         jTabbedPane_Admin.setBackground(new java.awt.Color(0, 0, 0));
         jTabbedPane_Admin.setBorder(new javax.swing.border.MatteBorder(null));
 
@@ -910,7 +879,6 @@ public class MainWindow extends javax.swing.JFrame {
 
             }
         ));
-        jTable_AssignCourse.setComponentPopupMenu(ViewCourse);
         jScrollPane8.setViewportView(jTable_AssignCourse);
 
         jLabel13.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
@@ -934,7 +902,6 @@ public class MainWindow extends javax.swing.JFrame {
 
             }
         ));
-        jTable_AssignCar.setComponentPopupMenu(ViewCar);
         jScrollPane9.setViewportView(jTable_AssignCar);
 
         jLabel42.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
@@ -1020,7 +987,6 @@ public class MainWindow extends javax.swing.JFrame {
 
             }
         ));
-        jTable_AssignTest.setComponentPopupMenu(ViewTest);
         jScrollPane10.setViewportView(jTable_AssignTest);
 
         AssignCar.setBackground(new java.awt.Color(44, 44, 44));
@@ -1261,11 +1227,10 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btn_AssignTest))
                     .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(419, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         jTabbedPane_Admin.addTab("Teacher", Professor);
-        Professor.getAccessibleContext().setAccessibleName("");
 
         Student.setBackground(new java.awt.Color(0, 0, 51));
         Student.setBorder(new javax.swing.border.MatteBorder(null));
@@ -1358,7 +1323,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(StudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(StudentLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 955, Short.MAX_VALUE))
+                        .addGap(0, 959, Short.MAX_VALUE))
                     .addGroup(StudentLayout.createSequentialGroup()
                         .addGroup(StudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
@@ -1449,10 +1414,374 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jButton_SearchStudent))
                 .addGap(18, 18, 18)
                 .addComponent(jButton_RefreshStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(471, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         jTabbedPane_Admin.addTab("Student", Student);
+
+        Test_Class.setBackground(new java.awt.Color(0, 0, 51));
+        Test_Class.setBorder(new javax.swing.border.MatteBorder(null));
+        Test_Class.setForeground(java.awt.Color.white);
+
+        EID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        EID.setForeground(new java.awt.Color(255, 255, 255));
+        EID.setText("Test ID:");
+
+        etype.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        etype.setForeground(new java.awt.Color(255, 255, 255));
+        etype.setText("Test Type: ");
+
+        combox_ExamLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----", "Level I", "Level II", "Level III" }));
+
+        eLevel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        eLevel.setForeground(new java.awt.Color(255, 255, 255));
+        eLevel.setText("Test Level: ");
+
+        combox_ExamType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----", "Theoretical", "Practical" }));
+        combox_ExamType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combox_ExamTypeActionPerformed(evt);
+            }
+        });
+
+        eCost.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        eCost.setForeground(new java.awt.Color(255, 255, 255));
+        eCost.setText("Cost:");
+
+        btn_ExamMake.setBackground(new java.awt.Color(102, 102, 102));
+        btn_ExamMake.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ExamMake.setText("Make Test");
+        btn_ExamMake.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_ExamMakeMouseClicked(evt);
+            }
+        });
+
+        cid.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
+        cid.setForeground(new java.awt.Color(255, 255, 255));
+        cid.setText("Course ID:");
+
+        cType.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cType.setForeground(new java.awt.Color(255, 255, 255));
+        cType.setText("Course Type:");
+
+        combox_CourseType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----", "Theoretical", "Practical" }));
+
+        cLevel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cLevel.setForeground(new java.awt.Color(255, 255, 255));
+        cLevel.setText("Course Level: ");
+
+        combox_CourseLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----", "Level I", "Level II", "Level III" }));
+
+        cCost.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cCost.setForeground(new java.awt.Color(255, 255, 255));
+        cCost.setText("Cost:");
+
+        btn_CourseMake.setBackground(new java.awt.Color(102, 102, 102));
+        btn_CourseMake.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CourseMake.setText("Make Course");
+        btn_CourseMake.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CourseMakeMouseClicked(evt);
+            }
+        });
+
+        btn_CourseModify.setBackground(new java.awt.Color(102, 102, 102));
+        btn_CourseModify.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CourseModify.setText("Modify Course");
+        btn_CourseModify.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CourseModifyMouseClicked(evt);
+            }
+        });
+
+        btn_ExamModify.setBackground(new java.awt.Color(102, 102, 102));
+        btn_ExamModify.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ExamModify.setText("Modify Test");
+        btn_ExamModify.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_ExamModifyMouseClicked(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Duration: ");
+
+        table_Course.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(table_Course);
+
+        btn_CourseRefresh.setBackground(new java.awt.Color(102, 102, 102));
+        btn_CourseRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CourseRefresh.setText("Refresh");
+        btn_CourseRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CourseRefreshMouseClicked(evt);
+            }
+        });
+
+        table_Exam.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(table_Exam);
+
+        btn_CourseDelete.setBackground(new java.awt.Color(102, 102, 102));
+        btn_CourseDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CourseDelete.setText("Delete");
+        btn_CourseDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CourseDeleteMouseClicked(evt);
+            }
+        });
+
+        btn_ExamRefresh.setBackground(new java.awt.Color(102, 102, 102));
+        btn_ExamRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ExamRefresh.setText("Refresh");
+        btn_ExamRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_ExamRefreshMouseClicked(evt);
+            }
+        });
+
+        btn_ExamDelete.setBackground(new java.awt.Color(102, 102, 102));
+        btn_ExamDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ExamDelete.setText("Delete");
+        btn_ExamDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_ExamDeleteMouseClicked(evt);
+            }
+        });
+
+        btn_CourseGetData.setBackground(new java.awt.Color(102, 102, 102));
+        btn_CourseGetData.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CourseGetData.setText("Get Data");
+        btn_CourseGetData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CourseGetDataMouseClicked(evt);
+            }
+        });
+
+        btn_ExamGetData.setBackground(new java.awt.Color(102, 102, 102));
+        btn_ExamGetData.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ExamGetData.setText("Get Data");
+        btn_ExamGetData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_ExamGetDataMouseClicked(evt);
+            }
+        });
+
+        cIID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cIID.setForeground(new java.awt.Color(255, 255, 255));
+        cIID.setText("Input ID: ");
+
+        eIID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        eIID.setForeground(new java.awt.Color(255, 255, 255));
+        eIID.setText("Input ID:");
+
+        btn_CourseSearch.setBackground(new java.awt.Color(102, 102, 102));
+        btn_CourseSearch.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btn_CourseSearch.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CourseSearch.setText("Search");
+
+        btn_ExamSearch.setBackground(new java.awt.Color(102, 102, 102));
+        btn_ExamSearch.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ExamSearch.setText("Search");
+
+        javax.swing.GroupLayout Test_ClassLayout = new javax.swing.GroupLayout(Test_Class);
+        Test_Class.setLayout(Test_ClassLayout);
+        Test_ClassLayout.setHorizontalGroup(
+            Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Test_ClassLayout.createSequentialGroup()
+                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(Test_ClassLayout.createSequentialGroup()
+                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(eIID, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(41, 41, 41)
+                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tf_ExamID, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(tf_ExamInputID)))
+                            .addGroup(Test_ClassLayout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(eLevel)
+                                            .addComponent(eCost, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(Test_ClassLayout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addComponent(tf_ExamCost, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Test_ClassLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                                .addComponent(combox_ExamLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                                        .addComponent(btn_ExamMake, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btn_ExamModify, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Test_ClassLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(btn_ExamGetData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_ExamDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_ExamRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32))
+                            .addGroup(Test_ClassLayout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btn_ExamSearch)
+                                    .addComponent(etype))
+                                .addGap(18, 18, 18)
+                                .addComponent(combox_ExamType, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Test_ClassLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cIID, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cid)
+                                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cLevel)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cCost, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(16, 16, 16)
+                                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tf_CourseDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(Test_ClassLayout.createSequentialGroup()
+                                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(tf_CourseInputID)
+                                                    .addComponent(combox_CourseLevel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(tf_CourseID, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(48, 48, 48)
+                                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                                                        .addComponent(cType, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(combox_CourseType, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(btn_CourseSearch)))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Test_ClassLayout.createSequentialGroup()
+                                                .addComponent(tf_CourseCost, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(435, 435, 435))))
+                                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                                        .addComponent(btn_CourseMake, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btn_CourseModify, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btn_CourseGetData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_CourseDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_CourseRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(36, 36, 36)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator7))))
+                .addContainerGap())
+        );
+        Test_ClassLayout.setVerticalGroup(
+            Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Test_ClassLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cIID)
+                            .addComponent(tf_CourseInputID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_CourseSearch))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cid)
+                            .addComponent(tf_CourseID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(combox_CourseLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cLevel)
+                            .addComponent(cType)
+                            .addComponent(combox_CourseType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tf_CourseDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tf_CourseCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cCost))
+                        .addGap(48, 48, 48)
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_CourseMake)
+                            .addComponent(btn_CourseModify))
+                        .addGap(52, 52, 52))
+                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                        .addComponent(btn_CourseRefresh)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_CourseDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_CourseGetData))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(eIID)
+                            .addComponent(tf_ExamInputID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_ExamSearch))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tf_ExamID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(etype)
+                            .addComponent(combox_ExamType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(eLevel)
+                            .addComponent(combox_ExamLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(eCost)
+                            .addComponent(tf_ExamCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_ExamRefresh)
+                            .addComponent(btn_ExamModify)
+                            .addComponent(btn_ExamMake))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_ExamDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_ExamGetData)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))))
+        );
+
+        jTabbedPane_Admin.addTab("Courses & Tests", Test_Class);
 
         Cars.setBackground(new java.awt.Color(0, 0, 51));
         Cars.setForeground(new java.awt.Color(0, 0, 153));
@@ -1545,6 +1874,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         btn_CarSearch.setForeground(new java.awt.Color(255, 255, 255));
         btn_CarSearch.setText("Search");
+        btn_CarSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CarSearchMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout CarsLayout = new javax.swing.GroupLayout(Cars);
         Cars.setLayout(CarsLayout);
@@ -1633,367 +1967,6 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         jTabbedPane_Admin.addTab("Car", Cars);
-
-        Test_Class.setBackground(new java.awt.Color(0, 0, 51));
-        Test_Class.setBorder(new javax.swing.border.MatteBorder(null));
-        Test_Class.setForeground(java.awt.Color.white);
-
-        EID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        EID.setForeground(new java.awt.Color(255, 255, 255));
-        EID.setText("Exam ID:");
-
-        etype.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        etype.setForeground(new java.awt.Color(255, 255, 255));
-        etype.setText("Exam Type: ");
-
-        combox_ExamLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----", "Level I", "Level II", "Level III" }));
-
-        eLevel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        eLevel.setForeground(new java.awt.Color(255, 255, 255));
-        eLevel.setText("Exam Level: ");
-
-        combox_ExamType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----", "Theoretical", "Practical" }));
-        combox_ExamType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combox_ExamTypeActionPerformed(evt);
-            }
-        });
-
-        eCost.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        eCost.setForeground(new java.awt.Color(255, 255, 255));
-        eCost.setText("Cost:");
-
-        btn_ExamMake.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamMake.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ExamMake.setText("Make Exam");
-        btn_ExamMake.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_ExamMakeMouseClicked(evt);
-            }
-        });
-
-        cid.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
-        cid.setForeground(new java.awt.Color(255, 255, 255));
-        cid.setText("Course ID:");
-
-        cType.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cType.setForeground(new java.awt.Color(255, 255, 255));
-        cType.setText("Course Type:");
-
-        combox_CourseType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----", "Theoretical", "Practical" }));
-
-        cLevel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cLevel.setForeground(new java.awt.Color(255, 255, 255));
-        cLevel.setText("Course Level: ");
-
-        combox_CourseLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----", "Level I", "Level II", "Level III" }));
-
-        cCost.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cCost.setForeground(new java.awt.Color(255, 255, 255));
-        cCost.setText("Cost:");
-
-        btn_CourseMake.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseMake.setForeground(new java.awt.Color(255, 255, 255));
-        btn_CourseMake.setText("Make Course");
-        btn_CourseMake.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_CourseMakeMouseClicked(evt);
-            }
-        });
-
-        btn_ModifyCourse.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ModifyCourse.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ModifyCourse.setText("Modify Course");
-        btn_ModifyCourse.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_ModifyCourseMouseClicked(evt);
-            }
-        });
-
-        btn_ExamModify.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamModify.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ExamModify.setText("Modify Exam");
-        btn_ExamModify.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_ExamModifyMouseClicked(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Duration: ");
-
-        table_Course.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(table_Course);
-
-        btn_CourseRefresh.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseRefresh.setForeground(new java.awt.Color(255, 255, 255));
-        btn_CourseRefresh.setText("Refresh");
-        btn_CourseRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_CourseRefreshMouseClicked(evt);
-            }
-        });
-
-        table_Exam.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane2.setViewportView(table_Exam);
-
-        btn_CourseDelete.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btn_CourseDelete.setText("Delete");
-        btn_CourseDelete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_CourseDeleteMouseClicked(evt);
-            }
-        });
-
-        btn_ExamRefresh.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamRefresh.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ExamRefresh.setText("Refresh");
-        btn_ExamRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_ExamRefreshMouseClicked(evt);
-            }
-        });
-
-        btn_ExamDelete.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ExamDelete.setText("Delete");
-        btn_ExamDelete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_ExamDeleteMouseClicked(evt);
-            }
-        });
-
-        btn_CourseGetData.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseGetData.setForeground(new java.awt.Color(255, 255, 255));
-        btn_CourseGetData.setText("Get Data");
-
-        btn_ExamGetData.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamGetData.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ExamGetData.setText("Get Data");
-
-        cIID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cIID.setForeground(new java.awt.Color(255, 255, 255));
-        cIID.setText("Input ID: ");
-
-        eIID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        eIID.setForeground(new java.awt.Color(255, 255, 255));
-        eIID.setText("Input ID:");
-
-        btn_CourseSearch.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseSearch.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btn_CourseSearch.setForeground(new java.awt.Color(255, 255, 255));
-        btn_CourseSearch.setText("Search");
-
-        btn_ExamSearch.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamSearch.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ExamSearch.setText("Search");
-
-        javax.swing.GroupLayout Test_ClassLayout = new javax.swing.GroupLayout(Test_Class);
-        Test_Class.setLayout(Test_ClassLayout);
-        Test_ClassLayout.setHorizontalGroup(
-            Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Test_ClassLayout.createSequentialGroup()
-                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator7))
-                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Test_ClassLayout.createSequentialGroup()
-                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(eIID, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(EID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(41, 41, 41)
-                                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tf_ExamID, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tf_ExamInputID, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(eLevel)
-                                            .addComponent(eCost, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tf_ExamCost, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(Test_ClassLayout.createSequentialGroup()
-                                                .addComponent(combox_ExamLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(etype)))))
-                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                                        .addGap(46, 46, 46)
-                                        .addComponent(btn_ExamSearch))
-                                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(combox_ExamType, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(Test_ClassLayout.createSequentialGroup()
-                                .addGap(122, 122, 122)
-                                .addComponent(btn_ExamMake, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(113, 113, 113)
-                                .addComponent(btn_ExamModify, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                        .addGap(28, 28, Short.MAX_VALUE)
-                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cIID, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cid)
-                            .addGroup(Test_ClassLayout.createSequentialGroup()
-                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cLevel)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cCost, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(16, 16, 16)
-                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tf_CourseCost, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                                        .addComponent(tf_CourseInputID, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(55, 55, 55)
-                                        .addComponent(btn_CourseSearch))
-                                    .addComponent(tf_CourseDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                                        .addGap(39, 39, 39)
-                                        .addComponent(btn_CourseMake, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(135, 135, 135)
-                                        .addComponent(btn_ModifyCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(combox_CourseLevel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(tf_CourseID, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
-                                        .addGap(48, 48, 48)
-                                        .addComponent(cType, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(combox_CourseType, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(102, 102, 102)
-                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Test_ClassLayout.createSequentialGroup()
-                                .addComponent(btn_CourseRefresh)
-                                .addGap(31, 31, 31)
-                                .addComponent(btn_CourseDelete)
-                                .addGap(35, 35, 35)
-                                .addComponent(btn_CourseGetData)
-                                .addGap(56, 56, 56)))))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Test_ClassLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_ExamRefresh)
-                .addGap(52, 52, 52)
-                .addComponent(btn_ExamDelete)
-                .addGap(41, 41, 41)
-                .addComponent(btn_ExamGetData)
-                .addGap(54, 54, 54))
-        );
-        Test_ClassLayout.setVerticalGroup(
-            Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Test_ClassLayout.createSequentialGroup()
-                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cIID)
-                            .addComponent(tf_CourseInputID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_CourseSearch))
-                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Test_ClassLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(cid)
-                                    .addComponent(tf_CourseID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(combox_CourseLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cLevel)
-                                    .addComponent(cType)
-                                    .addComponent(combox_CourseType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(tf_CourseDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(tf_CourseCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cCost))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE))
-                            .addGroup(Test_ClassLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btn_CourseMake)
-                                    .addComponent(btn_ModifyCourse))
-                                .addGap(53, 53, 53)))))
-                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_CourseRefresh)
-                    .addComponent(btn_CourseDelete)
-                    .addComponent(btn_CourseGetData))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(eIID)
-                            .addComponent(tf_ExamInputID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_ExamSearch))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tf_ExamID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(EID))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(etype)
-                            .addComponent(combox_ExamType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(eLevel)
-                            .addComponent(combox_ExamLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(eCost)
-                            .addComponent(tf_ExamCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(75, 75, 75)
-                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_ExamModify)
-                            .addComponent(btn_ExamMake)))
-                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_ExamRefresh)
-                            .addComponent(btn_ExamDelete)
-                            .addComponent(btn_ExamGetData))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane_Admin.addTab("Courses & Exams", Test_Class);
 
         History.setBackground(new java.awt.Color(0, 0, 51));
         History.setForeground(new java.awt.Color(0, 0, 102));
@@ -2089,6 +2062,38 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         ViewTest.add(GetTest);
+
+        jMenuItem_GetData.setText("See Data");
+        jMenuItem_GetData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_GetDataActionPerformed(evt);
+            }
+        });
+        jPopupMenu_GetData.add(jMenuItem_GetData);
+
+        jMenuItem_ViewStudent.setText("Quick View");
+        jMenuItem_ViewStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_ViewStudentActionPerformed(evt);
+            }
+        });
+        jPopup_DeleteStudent.add(jMenuItem_ViewStudent);
+
+        jMenuItem_DeleteStudent.setText("DeleteEmployee");
+        jMenuItem_DeleteStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_DeleteStudentActionPerformed(evt);
+            }
+        });
+        jPopup_DeleteStudent.add(jMenuItem_DeleteStudent);
+
+        jMenuItem_DeleteCourse.setText("jMenuItem1");
+        jMenuItem_DeleteCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_DeleteCourseActionPerformed(evt);
+            }
+        });
+        Popup_DeleteCourse.add(jMenuItem_DeleteCourse);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -2244,21 +2249,6 @@ public class MainWindow extends javax.swing.JFrame {
         return true;
     }
     
-    private void jMenuItem_ViewStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_ViewStudentActionPerformed
-        
-    }//GEN-LAST:event_jMenuItem_ViewStudentActionPerformed
-
-    private void jMenuItem_DeleteStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_DeleteStudentActionPerformed
-        int Row=jTable_Students.getSelectedRow();                
-        String IDtoErase=jTable_Students.getValueAt(Row,0).toString();
-        DB.DeleteStudentDocument(IDtoErase);
-        JOptionPane.showMessageDialog(this, "Stundent Deleted Successfully!");
-    }//GEN-LAST:event_jMenuItem_DeleteStudentActionPerformed
-
-    private void jMenuItem_GetDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_GetDataActionPerformed
-      
-    }//GEN-LAST:event_jMenuItem_GetDataActionPerformed
-
     private void AssignCourse1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignCourse1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AssignCourse1ActionPerformed
@@ -2279,9 +2269,172 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Course has been finalized, status can't be changed");
     }//GEN-LAST:event_btncoursestatusActionPerformed
 
-    private void jMenuItem_DeleteCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_DeleteCourseActionPerformed
+    private void btnstudcourserefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstudcourserefreshActionPerformed
+        DefaultTableModel Modelo = new DefaultTableModel();
+        Modelo = new DefaultTableModel();
+        Modelo.addColumn("CourseID");
+        Modelo.addColumn("Type");
+        Modelo.addColumn("Status");
+        Modelo.addColumn("Level");
+        Modelo.addColumn("Cost");
+        this.StudentCoursesStatetbl.setModel(DB.GetStudentCourses(Modelo,"34"));
+    }//GEN-LAST:event_btnstudcourserefreshActionPerformed
 
-    }//GEN-LAST:event_jMenuItem_DeleteCourseActionPerformed
+    private void btnTakeExamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTakeExamActionPerformed
+        //
+    }//GEN-LAST:event_btnTakeExamActionPerformed
+
+    private void SearchTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTeacherActionPerformed
+        DefaultTableModel Modelo = new DefaultTableModel();
+        //Cars
+        Modelo.addColumn("Plate");
+        Modelo.addColumn("Kilometers");
+        jTable_AssignCar.setModel(DB.GetCarDocuments(Modelo));
+        //Courses
+        Modelo = new DefaultTableModel();
+        Modelo.addColumn("CourseID");
+        Modelo.addColumn("Type");
+        Modelo.addColumn("Level");
+        Modelo.addColumn("Duration");
+        jTable_AssignCourse.setModel(DB.GetCourseDocuments(Modelo));
+        //Tests
+        Modelo = new DefaultTableModel();
+        Modelo.addColumn("TestID");
+        Modelo.addColumn("Type");
+        Modelo.addColumn("Level");
+        jTable_AssignTest.setModel(DB.GetTestDocuments(Modelo));
+    }//GEN-LAST:event_SearchTeacherActionPerformed
+
+    private void AddTeacherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddTeacherMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddTeacherMouseClicked
+
+    private void AddTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTeacherActionPerformed
+        String TeacherID = this.TeacherID.getText();
+        String TN = this.TeacherName.getText();
+        String TPN = this.TeacherPhoneNumber.getText();
+        String TL = combox_TeacherLevel.getSelectedItem().toString();
+        if(TeacherID.equals("") || TN.equals("") || TPN.equals("") || TL.equals("----")){
+            JOptionPane.showMessageDialog(this, "Fail. Make sure everything is filled!");
+        } else {
+            DB.AddTeacherDocument(TeacherID,TN,TPN,TL);
+            JOptionPane.showMessageDialog(this, "New Teacher Created Successfully!");
+        }
+    }//GEN-LAST:event_AddTeacherActionPerformed
+
+    private void ModifyTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTeacherActionPerformed
+        DB.ModifyTeacherDocument(TeacherID.getText(),TeacherName.getText(),TeacherPhoneNumber.getText(),combox_TeacherLevel.getSelectedItem().toString());
+        JOptionPane.showMessageDialog(this, "Teacher Modified Correctly!");
+    }//GEN-LAST:event_ModifyTeacherActionPerformed
+
+    private void AssignCarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssignCarMouseClicked
+        String Car = this.AssignCarPlate.getText();
+        String TeacherID = this.TeacherID.getText();
+        if(TeacherID.equals("") || Car.equals("")){
+            JOptionPane.showMessageDialog(this, "Select a Teacher or a Car!");
+        } else {
+            if(DB.AssignCarTeacher(TeacherID,Car)){
+                JOptionPane.showMessageDialog(this, "Car Assigned Successfully!");
+            }
+
+        }
+    }//GEN-LAST:event_AssignCarMouseClicked
+
+    private void AssignCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignCarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AssignCarActionPerformed
+
+    private void btn_AssignTestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AssignTestMouseClicked
+        String LevelTest = this.AssignTestLevel.getText();
+        String LevelTeacher = this.combox_TeacherLevel.getSelectedItem().toString();
+        String TeacherID = this.TeacherID.getText();
+        String TestID = this.AssignTestID.getText();
+        if(TestID.equals("") || LevelTeacher.equals("----") || TeacherID.equals("") || LevelTest.equals("")){
+            JOptionPane.showMessageDialog(this, "Fail. Make sure everything is filled!");
+        } else {
+            if(LevelTeacher.equalsIgnoreCase("level iii")){
+                if(DB.AssignTestTeacher(TeacherID, TestID)){
+                    JOptionPane.showMessageDialog(this, "Teacher and Test Assigned Successfully!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Teacher doesn't exist.");
+                }
+            } else {
+                if(LevelTeacher.equalsIgnoreCase("level ii")){
+                    if(LevelTest.equalsIgnoreCase("level iii")){
+                        JOptionPane.showMessageDialog(this, "Teacher isn't capable (Teacher's Level)!");
+                    } else {
+                        if(DB.AssignTestTeacher(TeacherID, TestID)){
+                            JOptionPane.showMessageDialog(this, "Teacher and Test Assigned Successfully!");
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Teacher doesn't exist.");
+                        }
+                    }
+                } else {
+                    if(!LevelTest.equalsIgnoreCase("level i")){
+                        JOptionPane.showMessageDialog(this, "Teacher isn't capable (Teacher's Level)!");
+                    } else {
+                        if(DB.AssignTestTeacher(TeacherID, TestID)) {
+                            JOptionPane.showMessageDialog(this, "Teacher and Test Assigned Successfully!");
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Teacher doesn't exist.");
+                        }
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_btn_AssignTestMouseClicked
+
+    private void btn_AssignTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AssignTestActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_AssignTestActionPerformed
+
+    private void AssignCourseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssignCourseMouseClicked
+        String LevelCourse = this.AssignCourseLevel.getText();
+        String LevelTeacher = this.combox_TeacherLevel.getSelectedItem().toString();
+        String TeacherID = this.TeacherID.getText();
+        String CourseID = this.AssignCourseID.getText();
+        if(LevelCourse.equals("") || LevelTeacher.equals("----") || TeacherID.equals("") || LevelCourse.equals("")){
+            JOptionPane.showMessageDialog(this, "Fail. Make sure everything is filled!");
+        } else {
+            if(LevelTeacher.equalsIgnoreCase("level iii")){
+                if(DB.AssignCourseTeacher(TeacherID, CourseID)){
+                    JOptionPane.showMessageDialog(this, "Teacher and Course Assigned Successfully!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Teacher doesn't exist.");
+                }
+            } else {
+                if(LevelTeacher.equalsIgnoreCase("level ii")){
+                    if(LevelCourse.equalsIgnoreCase("level iii")){
+                        JOptionPane.showMessageDialog(this, "Teacher isn't capable (Teacher's Level)!");
+                    } else {
+                        if(DB.AssignCourseTeacher(TeacherID, CourseID)){
+                            JOptionPane.showMessageDialog(this, "Teacher and Course Assigned Successfully!");
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Teacher doesn't exist.");
+                        }
+                    }
+                } else {
+                    if(!LevelCourse.equalsIgnoreCase("level i")){
+                        JOptionPane.showMessageDialog(this, "Teacher isn't capable (Teacher's Level)!");
+                    } else {
+                        if(DB.AssignCourseTeacher(TeacherID, CourseID)){
+                            JOptionPane.showMessageDialog(this, "Teacher and Course Assigned Successfully!");
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Teacher doesn't exist.");
+                        }
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_AssignCourseMouseClicked
+
+    private void AssignCourseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssignCourseMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AssignCourseMouseEntered
+
+    private void AssignCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignCourseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AssignCourseActionPerformed
 
     private void jButton_AddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AddStudentActionPerformed
         DB.AddStudentDocument(StudentID.getText(),StudentName.getText(),StudentLastName.getText(),StudentPhoneNumber.getText(),StudentAdress.getText());
@@ -2316,24 +2469,93 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_combox_ExamTypeActionPerformed
 
     private void btn_ExamMakeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ExamMakeMouseClicked
-        DB.AddTestDocument(this.tf_ExamID.getText(), this.combox_ExamLevel.getSelectedItem().toString(), this.combox_ExamType.getSelectedItem().toString(), Double.parseDouble(this.tf_CourseCost.getText()));
-        JOptionPane.showMessageDialog(this, "Exam Created Successfully!");
+        String ExamID = this.tf_ExamID.getText();
+        String ExamType = this.combox_ExamType.getSelectedItem().toString();
+        String ExamLevel = this.combox_ExamLevel.getSelectedItem().toString();
+        String EC = this.tf_ExamCost.getText();
+
+        if(!ExamID.equals("") && !EC.equals("") && !ExamType.equals("----")){
+            Double ExamCost = Double.parseDouble(EC);
+            if(ExamType.equals("Practical") && !ExamLevel.equals("----")){
+                if(DB.AddTestDocument(ExamID, ExamLevel, ExamType, ExamCost)) {
+                    JOptionPane.showMessageDialog(this, "Test Added Successfully!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "ID already exists!");
+                }
+            } else {
+                if(ExamType.equals("Practical")){
+                    JOptionPane.showMessageDialog(this, "Test failed to add... \nMake sure everything is filled");
+                } else {
+                    if(DB.AddTestDocument(ExamID, ExamLevel, ExamType, ExamCost)) {
+                        JOptionPane.showMessageDialog(this, "Test Added Successfully!");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "ID already exists!");
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Test failed to add... \nMake sure everything is filled");
+        }
     }//GEN-LAST:event_btn_ExamMakeMouseClicked
 
     private void btn_CourseMakeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CourseMakeMouseClicked
-        DB.AddCourseDocument(this.tf_CourseID.getText(), this.combox_CourseType.getSelectedItem().toString(), this.combox_CourseLevel.getSelectedItem().toString(), "0", this.tf_CourseDuration.getText(), Double.parseDouble(this.tf_CourseCost.getText()));
-        JOptionPane.showMessageDialog(this, "Course Created Successfully!");
-        //String ID,String Type,String Level, String TeacherID, String Duration, double Cost
+        String CourseID = this.tf_CourseID.getText();
+        String CourseType = this.combox_CourseType.getSelectedItem().toString();
+        String CourseLevel = this.combox_CourseLevel.getSelectedItem().toString();
+        String CourseDuration = this.tf_CourseDuration.getText();
+        String CC = this.tf_CourseCost.getText();
+
+        if(!CourseID.equals("") && !CourseType.equals("----") && !CourseLevel.equals("----") && !CourseDuration.equals("") && !CC.equals("")){
+            Double CourseCost = Double.parseDouble(CC);
+            if(DB.AddCourseDocument(CourseID, CourseType, CourseLevel, "0", CourseDuration, CourseCost)) {
+                JOptionPane.showMessageDialog(this, "Course Added Successfully!");
+            } else {
+                JOptionPane.showMessageDialog(this, "ID already exists!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Course failed to add... \nMake sure everything is filled");
+        }
     }//GEN-LAST:event_btn_CourseMakeMouseClicked
 
-    private void btn_ModifyCourseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ModifyCourseMouseClicked
-        DB.ModifyCourseDocument(this.tf_CourseID.getText(), this.combox_CourseType.getSelectedItem().toString(), this.combox_CourseLevel.getSelectedItem().toString(),this.tf_CourseDuration.getText(), Double.parseDouble(this.tf_CourseCost.getText()));
-        JOptionPane.showMessageDialog(this, "Course Modified Successfully!");
-    }//GEN-LAST:event_btn_ModifyCourseMouseClicked
+    private void btn_CourseModifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CourseModifyMouseClicked
+        String CourseID = this.tf_CourseID.getText();
+        String CourseType = this.combox_CourseType.getSelectedItem().toString();
+        String CourseLevel = this.combox_CourseLevel.getSelectedItem().toString();
+        String CourseDuration = this.tf_CourseDuration.getText();
+        String CC = this.tf_CourseCost.getText();
+
+        if(!CourseID.equals("") && !CourseType.equals("----") && !CourseLevel.equals("----") && !CourseDuration.equals("") && !CC.equals("")){
+            Double CourseCost = Double.parseDouble(CC);
+            if(DB.ModifyCourseDocument(CourseID, CourseType, CourseLevel, CourseDuration, CourseCost)) {
+                JOptionPane.showMessageDialog(this, "Course Modify Successfully!");
+            } else {
+                JOptionPane.showMessageDialog(this, "ID does not exist!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Course failed to modify... \nMake sure everything is filled");
+        }
+    }//GEN-LAST:event_btn_CourseModifyMouseClicked
 
     private void btn_ExamModifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ExamModifyMouseClicked
-        DB.ModifyTestDocument(this.tf_ExamID.getText(), this.combox_ExamLevel.getSelectedItem().toString(), this.combox_ExamType.getSelectedItem().toString(), Double.parseDouble(this.tf_CourseCost.getText()));
-        JOptionPane.showMessageDialog(this, "Exam Modified Successfully!");
+        String ExamID = this.tf_ExamID.getText();
+        String ExamType = this.combox_ExamType.getSelectedItem().toString();
+        String ExamLevel = this.combox_ExamLevel.getSelectedItem().toString();
+        String EC = this.tf_ExamCost.getText();
+
+        if(!ExamID.equals("") && !EC.equals("") && !ExamType.equals("----")){
+            Double ExamCost = Double.parseDouble(EC);
+            if(ExamType.equals("Practical") && !ExamLevel.equals("----")){
+                if(DB.ModifyTestDocument(ExamID, ExamLevel, ExamType, ExamCost)) {
+                    JOptionPane.showMessageDialog(this, "Test Added Successfully!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "ID does not exist!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Test failed to modify... \nMake sure everything is filled");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Test failed to modify... \nMake sure everything is filled");
+        }
     }//GEN-LAST:event_btn_ExamModifyMouseClicked
 
     private void btn_CourseRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CourseRefreshMouseClicked
@@ -2361,7 +2583,7 @@ public class MainWindow extends javax.swing.JFrame {
         Modelo.addColumn("Type");
         Modelo.addColumn("Level");
         Modelo.addColumn("Cost");
-        this.table_Exam.setModel(DB.GetTestDocuments(Modelo));
+        this.table_Exam.setModel(DB.GetAllTestDocuments(Modelo));
     }//GEN-LAST:event_btn_ExamRefreshMouseClicked
 
     private void btn_ExamDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ExamDeleteMouseClicked
@@ -2371,18 +2593,53 @@ public class MainWindow extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Exam Deleted Successfully!");
     }//GEN-LAST:event_btn_ExamDeleteMouseClicked
 
-    private void btn_HistoryRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HistoryRefreshMouseClicked
-        DefaultTableModel Modelo = new DefaultTableModel();
-        Modelo = new DefaultTableModel();
-        Modelo.addColumn("Action");
-        Modelo.addColumn("Data");
-        Modelo.addColumn("Date");
-        this.table_History.setModel(DB.HistoryModel(Modelo));
-    }//GEN-LAST:event_btn_HistoryRefreshMouseClicked
+    private void btn_CourseGetDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CourseGetDataMouseClicked
+        int comboxValueCL = 0;
+        int comboxValueCT = 0;
+        int Row = this.table_Course.getSelectedRow();
+        this.tf_CourseID.setText(table_Course.getValueAt(Row,0).toString());
 
-    private void HistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HistoryMouseClicked
+        if(this.table_Course.getValueAt(Row,1).toString().equalsIgnoreCase("Theoretical")){
+            comboxValueCT = 1;
+        } else {
+            comboxValueCT = 2;
+        }
+        this.combox_CourseType.setSelectedIndex(comboxValueCT);
+        if(this.table_Course.getValueAt(Row,2).toString().equalsIgnoreCase("level i")){
+            comboxValueCL = 1;
+        } else if(this.table_Course.getValueAt(Row,2).toString().equalsIgnoreCase("level ii")){
+            comboxValueCL = 2;
+        } else {
+            comboxValueCL = 3;
+        }
+        this.combox_CourseLevel.setSelectedIndex(comboxValueCL);
+        this.tf_CourseDuration.setText(table_Course.getValueAt(Row, 3).toString());
+        this.tf_CourseCost.setText(table_Course.getValueAt(Row,4).toString());
+    }//GEN-LAST:event_btn_CourseGetDataMouseClicked
 
-    }//GEN-LAST:event_HistoryMouseClicked
+    private void btn_ExamGetDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ExamGetDataMouseClicked
+        int comboxValueEL = 0;
+        int comboxValueET = 0;
+        int Row = this.table_Exam.getSelectedRow();
+        this.tf_ExamID.setText(table_Exam.getValueAt(Row,0).toString());
+
+        if(this.table_Exam.getValueAt(Row,1).toString().equalsIgnoreCase("Theoretical")){
+            comboxValueET = 1;
+        } else {
+            comboxValueET = 2;
+        }
+        this.combox_ExamType.setSelectedIndex(comboxValueET);
+        if(this.table_Exam.getValueAt(Row,2).toString().equalsIgnoreCase("level i")){
+            comboxValueEL = 1;
+        } else if(this.table_Exam.getValueAt(Row,2).toString().equalsIgnoreCase("level ii")){
+            comboxValueEL = 2;
+        } else {
+            comboxValueEL = 3;
+        }
+        this.combox_ExamLevel.setSelectedIndex(comboxValueEL);
+
+        this.tf_ExamCost.setText(table_Exam.getValueAt(Row,3).toString());
+    }//GEN-LAST:event_btn_ExamGetDataMouseClicked
 
     private void btn_CarAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CarAddMouseClicked
         String CarID = this.tf_CarNumberPlate.getText();
@@ -2430,17 +2687,45 @@ public class MainWindow extends javax.swing.JFrame {
         this.table_Car.setModel(DB.GetAllCarDocuments(Modelo));
     }//GEN-LAST:event_btn_CarRefreshMouseClicked
 
-    private void btn_CarGetDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CarGetDataMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_CarGetDataMouseClicked
-
     private void btn_CarRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CarRefreshActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_CarRefreshActionPerformed
 
+    private void btn_CarGetDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CarGetDataMouseClicked
+        int comboxValue = 0;
+        int Row = this.table_Car.getSelectedRow();
+        this.tf_CarNumberPlate.setText(table_Car.getValueAt(Row,0).toString());
+        if(this.table_Car.getValueAt(Row,1).toString().equalsIgnoreCase("level i")){
+            comboxValue = 1;
+        } else if(this.table_Car.getValueAt(Row,1).toString().equalsIgnoreCase("level ii")){
+            comboxValue = 2;
+        } else {
+            comboxValue = 3;
+        }
+        this.combox_CarLevel.setSelectedIndex(comboxValue);
+        tf_CarKM.setText(table_Car.getValueAt(Row,2).toString());
+    }//GEN-LAST:event_btn_CarGetDataMouseClicked
+
     private void btn_CarGetDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CarGetDataActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_CarGetDataActionPerformed
+
+    private void btn_CarSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CarSearchMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CarSearchMouseClicked
+
+    private void btn_HistoryRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HistoryRefreshMouseClicked
+        DefaultTableModel Modelo = new DefaultTableModel();
+        Modelo = new DefaultTableModel();
+        Modelo.addColumn("Action");
+        Modelo.addColumn("Data");
+        Modelo.addColumn("Date");
+        this.table_History.setModel(DB.HistoryModel(Modelo));
+    }//GEN-LAST:event_btn_HistoryRefreshMouseClicked
+
+    private void HistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HistoryMouseClicked
+
+    }//GEN-LAST:event_HistoryMouseClicked
 
     private void GetCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GetCarActionPerformed
         int Row=jTable_AssignCar.getSelectedRow();
@@ -2462,172 +2747,24 @@ public class MainWindow extends javax.swing.JFrame {
         AssignTestLevel.setText(jTable_AssignTest.getValueAt(Row,2).toString());
     }//GEN-LAST:event_GetTestActionPerformed
 
-    private void AssignCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignCourseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AssignCourseActionPerformed
+    private void jMenuItem_GetDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_GetDataActionPerformed
 
-    private void AssignCourseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssignCourseMouseClicked
-        String LevelCourse = this.AssignCourseLevel.getText();
-        String LevelTeacher = this.combox_TeacherLevel.getSelectedItem().toString();
-        String TeacherID = this.TeacherID.getText();
-        String CourseID = this.AssignCourseID.getText();
-        if(LevelCourse.equals("") || LevelTeacher.equals("----") || TeacherID.equals("") || LevelCourse.equals("")){
-            JOptionPane.showMessageDialog(this, "Fail. Make sure everything is filled!");
-        } else {
-            if(LevelTeacher.equalsIgnoreCase("level iii")){
-                if(DB.AssignCourseTeacher(TeacherID, CourseID)){
-                    JOptionPane.showMessageDialog(this, "Teacher and Course Assigned Successfully!");
-                } else {
-                    JOptionPane.showMessageDialog(this, "Teacher doesn't exist.");
-                }
-            } else {
-                if(LevelTeacher.equalsIgnoreCase("level ii")){
-                    if(LevelCourse.equalsIgnoreCase("level iii")){
-                        JOptionPane.showMessageDialog(this, "Teacher isn't capable (Teacher's Level)!");
-                    } else {
-                        if(DB.AssignCourseTeacher(TeacherID, CourseID)){
-                            JOptionPane.showMessageDialog(this, "Teacher and Course Assigned Successfully!");
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Teacher doesn't exist.");
-                        }
-                    }
-                } else {
-                    if(!LevelCourse.equalsIgnoreCase("level i")){
-                        JOptionPane.showMessageDialog(this, "Teacher isn't capable (Teacher's Level)!");
-                    } else {
-                        if(DB.AssignCourseTeacher(TeacherID, CourseID)){
-                            JOptionPane.showMessageDialog(this, "Teacher and Course Assigned Successfully!");
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Teacher doesn't exist.");
-                        }
-                    }
-                }
-            }
-        }
-    }//GEN-LAST:event_AssignCourseMouseClicked
+    }//GEN-LAST:event_jMenuItem_GetDataActionPerformed
 
-    private void btn_AssignTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AssignTestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_AssignTestActionPerformed
+    private void jMenuItem_ViewStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_ViewStudentActionPerformed
 
-    private void btn_AssignTestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AssignTestMouseClicked
-        String LevelTest = this.AssignTestLevel.getText();
-        String LevelTeacher = this.combox_TeacherLevel.getSelectedItem().toString();
-        String TeacherID = this.TeacherID.getText();
-        String TestID = this.AssignTestID.getText();
-        if(TestID.equals("") || LevelTeacher.equals("----") || TeacherID.equals("") || LevelTest.equals("")){
-            JOptionPane.showMessageDialog(this, "Fail. Make sure everything is filled!");
-        } else {
-            if(LevelTeacher.equalsIgnoreCase("level iii")){
-                if(DB.AssignTestTeacher(TeacherID, TestID)){
-                    JOptionPane.showMessageDialog(this, "Teacher and Test Assigned Successfully!");
-                } else {
-                    JOptionPane.showMessageDialog(this, "Teacher doesn't exist.");
-                }
-            } else {
-                if(LevelTeacher.equalsIgnoreCase("level ii")){
-                    if(LevelTest.equalsIgnoreCase("level iii")){
-                        JOptionPane.showMessageDialog(this, "Teacher isn't capable (Teacher's Level)!");
-                    } else {
-                        if(DB.AssignTestTeacher(TeacherID, TestID)){
-                            JOptionPane.showMessageDialog(this, "Teacher and Test Assigned Successfully!");
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Teacher doesn't exist.");
-                        }    
-                    }
-                } else {
-                    if(!LevelTest.equalsIgnoreCase("level i")){
-                        JOptionPane.showMessageDialog(this, "Teacher isn't capable (Teacher's Level)!");
-                    } else {
-                        if(DB.AssignTestTeacher(TeacherID, TestID)) {
-                            JOptionPane.showMessageDialog(this, "Teacher and Test Assigned Successfully!");
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Teacher doesn't exist.");
-                        }
-                    }
-                }
-            }
-        }
-    }//GEN-LAST:event_btn_AssignTestMouseClicked
+    }//GEN-LAST:event_jMenuItem_ViewStudentActionPerformed
 
-    private void AssignCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignCarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AssignCarActionPerformed
+    private void jMenuItem_DeleteStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_DeleteStudentActionPerformed
+        int Row=jTable_Students.getSelectedRow();
+        String IDtoErase=jTable_Students.getValueAt(Row,0).toString();
+        DB.DeleteStudentDocument(IDtoErase);
+        JOptionPane.showMessageDialog(this, "Stundent Deleted Successfully!");
+    }//GEN-LAST:event_jMenuItem_DeleteStudentActionPerformed
 
-    private void AssignCarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssignCarMouseClicked
-        String Car = this.AssignCarPlate.getText();
-        String TeacherID = this.TeacherID.getText();
-        if(TeacherID.equals("") || Car.equals("")){
-            JOptionPane.showMessageDialog(this, "Select a Teacher or a Car!");
-        } else {
-            if(DB.AssignCarTeacher(TeacherID,Car)){
-                JOptionPane.showMessageDialog(this, "Car Assigned Successfully!");
-            }
-            
-        }
-    }//GEN-LAST:event_AssignCarMouseClicked
+    private void jMenuItem_DeleteCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_DeleteCourseActionPerformed
 
-    private void ModifyTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTeacherActionPerformed
-        DB.ModifyTeacherDocument(TeacherID.getText(),TeacherName.getText(),TeacherPhoneNumber.getText(),combox_TeacherLevel.getSelectedItem().toString());
-        JOptionPane.showMessageDialog(this, "Teacher Modified Correctly!");
-    }//GEN-LAST:event_ModifyTeacherActionPerformed
-
-    private void AddTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTeacherActionPerformed
-        String TeacherID = this.TeacherID.getText();
-        String TN = this.TeacherName.getText();
-        String TPN = this.TeacherPhoneNumber.getText();
-        String TL = combox_TeacherLevel.getSelectedItem().toString();
-        if(TeacherID.equals("") || TN.equals("") || TPN.equals("") || TL.equals("----")){
-            JOptionPane.showMessageDialog(this, "Fail. Make sure everything is filled!");
-        } else {
-            DB.AddTeacherDocument(TeacherID,TN,TPN,TL);
-            JOptionPane.showMessageDialog(this, "New Teacher Created Successfully!");
-        }
-    }//GEN-LAST:event_AddTeacherActionPerformed
-
-    private void SearchTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTeacherActionPerformed
-        DefaultTableModel Modelo = new DefaultTableModel();
-        //Cars
-        Modelo.addColumn("Plate");
-        Modelo.addColumn("Kilometers");
-        jTable_AssignCar.setModel(DB.GetCarDocuments(Modelo));
-        //Courses
-        Modelo = new DefaultTableModel();
-        Modelo.addColumn("CourseID");
-        Modelo.addColumn("Type");
-        Modelo.addColumn("Level");
-        Modelo.addColumn("Duration");
-        jTable_AssignCourse.setModel(DB.GetCourseDocuments(Modelo));
-        //Tests
-        Modelo = new DefaultTableModel();
-        Modelo.addColumn("TestID");
-        Modelo.addColumn("Type");
-        Modelo.addColumn("Level");
-        jTable_AssignTest.setModel(DB.GetTestDocuments(Modelo));
-    }//GEN-LAST:event_SearchTeacherActionPerformed
-
-    private void AddTeacherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddTeacherMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddTeacherMouseClicked
-
-    private void AssignCourseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AssignCourseMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AssignCourseMouseEntered
-
-    private void btnstudcourserefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstudcourserefreshActionPerformed
-        DefaultTableModel Modelo = new DefaultTableModel();
-        Modelo = new DefaultTableModel();
-        Modelo.addColumn("CourseID");
-        Modelo.addColumn("Type");
-        Modelo.addColumn("Status");
-        Modelo.addColumn("Level");
-        Modelo.addColumn("Cost");
-        this.StudentCoursesStatetbl.setModel(DB.GetStudentCourses(Modelo,"34"));
-    }//GEN-LAST:event_btnstudcourserefreshActionPerformed
-
-    private void btnTakeExamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTakeExamActionPerformed
-        //
-    }//GEN-LAST:event_btnTakeExamActionPerformed
+    }//GEN-LAST:event_jMenuItem_DeleteCourseActionPerformed
 
     
     /**
@@ -2742,6 +2879,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton btn_CourseDelete;
     private javax.swing.JButton btn_CourseGetData;
     private javax.swing.JButton btn_CourseMake;
+    private javax.swing.JButton btn_CourseModify;
     private javax.swing.JButton btn_CourseRefresh;
     private javax.swing.JButton btn_CourseSearch;
     private javax.swing.JButton btn_ExamDelete;
@@ -2751,7 +2889,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton btn_ExamRefresh;
     private javax.swing.JButton btn_ExamSearch;
     private javax.swing.JButton btn_HistoryRefresh;
-    private javax.swing.JButton btn_ModifyCourse;
     private javax.swing.JButton btncoursestatus;
     private javax.swing.JButton btnstudcourserefresh;
     private javax.swing.JLabel cCost;
