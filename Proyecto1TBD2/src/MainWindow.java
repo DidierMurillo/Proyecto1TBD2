@@ -879,6 +879,7 @@ public class MainWindow extends javax.swing.JFrame {
 
             }
         ));
+        jTable_AssignCourse.setComponentPopupMenu(ViewCourse);
         jScrollPane8.setViewportView(jTable_AssignCourse);
 
         jLabel13.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
@@ -902,6 +903,7 @@ public class MainWindow extends javax.swing.JFrame {
 
             }
         ));
+        jTable_AssignCar.setComponentPopupMenu(ViewCar);
         jScrollPane9.setViewportView(jTable_AssignCar);
 
         jLabel42.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
@@ -987,6 +989,7 @@ public class MainWindow extends javax.swing.JFrame {
 
             }
         ));
+        jTable_AssignTest.setComponentPopupMenu(ViewTest);
         jScrollPane10.setViewportView(jTable_AssignTest);
 
         AssignCar.setBackground(new java.awt.Color(44, 44, 44));
@@ -2285,6 +2288,10 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTakeExamActionPerformed
 
     private void SearchTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTeacherActionPerformed
+        TeacherID.setText(SearchTeacherID.getText());
+        TeacherName.setText(DB.GetField("Teacher", "TeacherID",SearchTeacherID.getText(), "Name"));
+        TeacherPhoneNumber.setText(DB.GetField("Teacher", "TeacherID",SearchTeacherID.getText(), "PhoneNumber"));
+        combox_TeacherLevel.setSelectedItem(DB.GetField("Teacher", "TeacherID",SearchTeacherID.getText(), "Type"));
         DefaultTableModel Modelo = new DefaultTableModel();
         //Cars
         Modelo.addColumn("Plate");
