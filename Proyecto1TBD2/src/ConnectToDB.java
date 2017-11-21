@@ -612,4 +612,36 @@ public class ConnectToDB {
              .projection(Projections.fields(Projections.include(FieldName), Projections.excludeId())).first();
         return document.getDouble(FieldName);
     }
+    
+    public boolean ModifyStudentClass(String ID, int attempts_change, String state)
+    {
+        MongoCollection<Document> collection = database.getCollection("Student-Class");
+        collection.updateOne(Filters.eq("ID",ID), Updates.set("Attempts",
+                Integer.valueOf(GetField("Student-Class","ID",ID,"Attempts"))+attempts_change));
+        collection.updateOne(Filters.eq("ID",ID), Updates.set("State",state));
+        HistoryData("Updated","Student-ClassID: "+ID);
+        return true;
+    }
+    
+    public boolean PassedTheoryTest(String Student_id)
+    {
+        MongoCollection<Document> collection = database.getCollection("Student");
+        collection.updateOne(Filters.eq("StudentID",Student_id), Updates.set("TeoricalTest","true"));
+        return true;
+    }
+    
+    public boolean AddLicense(String ID, String Student_id, String type)
+    {
+        MongoCollection<Document> collection = database.getCollection("License");
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("ID",ID)).projection(Projections.excludeId());
+        Document doc = iterDoc.first();
+        if(!doc.get("ID").equals(ID)){
+            return false;
+        }
+        Document document = new Document("New License", "MongoDB")
+                .append("ID", ID).append("StudentID",Student_id).append("Type",type);
+        collection.insertOne(document);
+        HistoryData("Added","LicenseID: "+ID);
+        return true;
+    }
 } 

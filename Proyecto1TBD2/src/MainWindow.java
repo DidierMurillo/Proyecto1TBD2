@@ -1,5 +1,6 @@
 
 import java.awt.Dialog;
+import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -2115,6 +2116,7 @@ public class MainWindow extends javax.swing.JFrame {
         String UserName = jText_Username.getText();
         String Password = jText_UserPassword.getText();
         String TempUserID =DB.VerifyUser(UserName,Password);
+        User_ID = TempUserID;
         if (!"Wrong User".equals(TempUserID)) {
             System.out.println(DB.GetField("User","ID",TempUserID,"Type"));
             if ("Administrator".equals(DB.GetField("User","ID",TempUserID,"Type"))){
@@ -2204,11 +2206,54 @@ public class MainWindow extends javax.swing.JFrame {
         Modelo.addColumn("Status");
         Modelo.addColumn("Level");
         Modelo.addColumn("Cost");
-        this.StudentCoursesStatetbl.setModel(DB.GetStudentCourses(Modelo,"34"));
+        this.StudentCoursesStatetbl.setModel(DB.GetStudentCourses(Modelo,User_ID));
     }//GEN-LAST:event_btnstudcourserefreshActionPerformed
 
     private void btnTakeExamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTakeExamActionPerformed
-        //
+        int Row = StudentCoursesStatetbl.getSelectedRow();
+        String Course_id = StudentCoursesStatetbl.getValueAt(Row, 0).toString();
+        String Course_State = StudentCoursesStatetbl.getValueAt(Row, 2).toString();
+        if(Course_State!="Exams"||StudentCoursesStatetbl.getValueAt(Row,6).toString()=="true"
+                ||StudentCoursesStatetbl.getValueAt(Row,6).toString()=="0")
+        {
+            if(StudentCoursesStatetbl.getValueAt(Row,6).toString()=="0")
+                JOptionPane.showMessageDialog(this,"Exam unavailable, insufficient attempts, acquire more to continue.");
+            JOptionPane.showMessageDialog(this, "Exams currently unavailable for this class");
+        }
+        else
+        {
+            Random random = new Random();
+            int score = random.nextInt(99)+1;
+            if(score>=60)
+            {
+                JOptionPane.showMessageDialog(this,"Exam passed");
+                DB.ModifyStudentClass(StudentCoursesStatetbl.getValueAt(Row, 7).toString(), 0, "true");
+                if(StudentCoursesStatetbl.getValueAt(Row, 1)!="Practical"){
+                    DB.PassedTheoryTest(DB.GetField("Student-Class", "ID", 
+                        StudentCoursesStatetbl.getValueAt(Row,6).toString(), "StudentID"));
+                }
+                else
+                {
+                    boolean license_approved=false;
+                    int LicenseID=0;
+                    while(license_approved==false)
+                    {
+                        if(DB.AddLicense(String.valueOf(LicenseID), DB.GetField("Student-Class", "ID", 
+                        StudentCoursesStatetbl.getValueAt(Row,6).toString(), "StudentID"),
+                                StudentCoursesStatetbl.getValueAt(Row,1).toString()))
+                        {
+                            license_approved=true;
+                        }
+                        else
+                            LicenseID++;
+                    }
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this,"Exam failed");
+                DB.ModifyStudentClass(StudentCoursesStatetbl.getValueAt(Row, 7).toString(), -1, "false");
+            }
+        }
     }//GEN-LAST:event_btnTakeExamActionPerformed
 
     private void SearchTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTeacherActionPerformed
@@ -2991,5 +3036,5 @@ public class MainWindow extends javax.swing.JFrame {
     String AdminUsername="Juana";
     String AdminPassword="123";
     ConnectToDB DB=new ConnectToDB();
-        
+    String User_ID = "";
 }
