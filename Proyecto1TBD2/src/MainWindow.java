@@ -1366,7 +1366,7 @@ public class MainWindow extends javax.swing.JFrame {
         eCost.setText("Cost:");
 
         btn_ExamMake.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamMake.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ExamMake.setForeground(new java.awt.Color(0, 0, 0));
         btn_ExamMake.setText("Make Test");
         btn_ExamMake.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1395,7 +1395,7 @@ public class MainWindow extends javax.swing.JFrame {
         cCost.setText("Cost:");
 
         btn_CourseMake.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseMake.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CourseMake.setForeground(new java.awt.Color(0, 0, 0));
         btn_CourseMake.setText("Make Course");
         btn_CourseMake.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1404,7 +1404,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_CourseModify.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseModify.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CourseModify.setForeground(new java.awt.Color(0, 0, 0));
         btn_CourseModify.setText("Modify Course");
         btn_CourseModify.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1413,7 +1413,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_ExamModify.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamModify.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ExamModify.setForeground(new java.awt.Color(0, 0, 0));
         btn_ExamModify.setText("Modify Test");
         btn_ExamModify.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1439,7 +1439,7 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane1.setViewportView(table_Course);
 
         btn_CourseRefresh.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CourseRefresh.setForeground(new java.awt.Color(0, 0, 0));
         btn_CourseRefresh.setText("Refresh");
         btn_CourseRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1461,7 +1461,7 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane2.setViewportView(table_Exam);
 
         btn_CourseDelete.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CourseDelete.setForeground(new java.awt.Color(0, 0, 0));
         btn_CourseDelete.setText("Delete");
         btn_CourseDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1470,7 +1470,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_ExamRefresh.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ExamRefresh.setForeground(new java.awt.Color(0, 0, 0));
         btn_ExamRefresh.setText("Refresh");
         btn_ExamRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1479,7 +1479,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_ExamDelete.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ExamDelete.setForeground(new java.awt.Color(0, 0, 0));
         btn_ExamDelete.setText("Delete");
         btn_ExamDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1488,7 +1488,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_CourseGetData.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseGetData.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CourseGetData.setForeground(new java.awt.Color(0, 0, 0));
         btn_CourseGetData.setText("Get Data");
         btn_CourseGetData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1497,7 +1497,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_ExamGetData.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamGetData.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ExamGetData.setForeground(new java.awt.Color(0, 0, 0));
         btn_ExamGetData.setText("Get Data");
         btn_ExamGetData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1515,12 +1515,22 @@ public class MainWindow extends javax.swing.JFrame {
 
         btn_CourseSearch.setBackground(new java.awt.Color(102, 102, 102));
         btn_CourseSearch.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btn_CourseSearch.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CourseSearch.setForeground(new java.awt.Color(0, 0, 0));
         btn_CourseSearch.setText("Search");
+        btn_CourseSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CourseSearchMouseClicked(evt);
+            }
+        });
 
         btn_ExamSearch.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamSearch.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ExamSearch.setForeground(new java.awt.Color(0, 0, 0));
         btn_ExamSearch.setText("Search");
+        btn_ExamSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_ExamSearchMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout Test_ClassLayout = new javax.swing.GroupLayout(Test_Class);
         Test_Class.setLayout(Test_ClassLayout);
@@ -1566,19 +1576,22 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addComponent(btn_ExamRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(32, 32, 32))
                             .addGroup(Test_ClassLayout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btn_ExamSearch)
-                                    .addComponent(etype))
-                                .addGap(18, 18, 18)
-                                .addComponent(combox_ExamType, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)))
+                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                                        .addGap(41, 41, 41)
+                                        .addComponent(etype)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(combox_ExamType, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                                        .addGap(72, 72, 72)
+                                        .addComponent(btn_ExamSearch)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Test_ClassLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Test_ClassLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(0, 10, Short.MAX_VALUE)
                                 .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cIID, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cid)
@@ -1595,13 +1608,15 @@ public class MainWindow extends javax.swing.JFrame {
                                                     .addComponent(tf_CourseInputID)
                                                     .addComponent(combox_CourseLevel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(tf_CourseID, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(48, 48, 48)
                                                 .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(Test_ClassLayout.createSequentialGroup()
+                                                        .addGap(48, 48, 48)
                                                         .addComponent(cType, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(combox_CourseType, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(btn_CourseSearch)))
+                                                    .addGroup(Test_ClassLayout.createSequentialGroup()
+                                                        .addGap(114, 114, 114)
+                                                        .addComponent(btn_CourseSearch))))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Test_ClassLayout.createSequentialGroup()
                                                 .addComponent(tf_CourseCost, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(435, 435, 435))))
@@ -1623,17 +1638,21 @@ public class MainWindow extends javax.swing.JFrame {
             Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Test_ClassLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(Test_ClassLayout.createSequentialGroup()
-                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cIID)
-                            .addComponent(tf_CourseInputID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_CourseSearch))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cid)
-                            .addComponent(tf_CourseID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(Test_ClassLayout.createSequentialGroup()
+                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cIID)
+                                    .addComponent(tf_CourseInputID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cid)
+                                    .addComponent(tf_CourseID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Test_ClassLayout.createSequentialGroup()
+                                .addComponent(btn_CourseSearch)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(combox_CourseLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cLevel)
@@ -1661,9 +1680,10 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 25, Short.MAX_VALUE)
                 .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Test_ClassLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addGap(1, 1, 1)
                         .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(eIID)
                             .addComponent(tf_ExamInputID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1672,7 +1692,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tf_ExamID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(EID))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(Test_ClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(etype)
                             .addComponent(combox_ExamType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1690,12 +1710,9 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_ExamDelete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_ExamGetData)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(Test_ClassLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))))
+                        .addComponent(btn_ExamGetData))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane_Admin.addTab("Courses & Tests", Test_Class);
@@ -1712,7 +1729,7 @@ public class MainWindow extends javax.swing.JFrame {
         ckm.setText("Kilometers:");
 
         btn_CarAdd.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CarAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CarAdd.setForeground(new java.awt.Color(0, 0, 0));
         btn_CarAdd.setText("Add Car");
         btn_CarAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1721,7 +1738,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_CarModify.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CarModify.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CarModify.setForeground(new java.awt.Color(0, 0, 0));
         btn_CarModify.setText("Modify Car");
         btn_CarModify.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1743,7 +1760,7 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane11.setViewportView(table_Car);
 
         btn_CarDelete.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CarDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CarDelete.setForeground(new java.awt.Color(0, 0, 0));
         btn_CarDelete.setText("Delete");
         btn_CarDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1752,7 +1769,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_CarRefresh.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CarRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CarRefresh.setForeground(new java.awt.Color(0, 0, 0));
         btn_CarRefresh.setText("Refresh");
         btn_CarRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1766,7 +1783,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_CarGetData.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CarGetData.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CarGetData.setForeground(new java.awt.Color(0, 0, 0));
         btn_CarGetData.setText("Get Data");
         btn_CarGetData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1789,7 +1806,7 @@ public class MainWindow extends javax.swing.JFrame {
         cnpid.setForeground(new java.awt.Color(255, 255, 255));
         cnpid.setText("Input Number Plate:");
 
-        btn_CarSearch.setForeground(new java.awt.Color(255, 255, 255));
+        btn_CarSearch.setForeground(new java.awt.Color(0, 0, 0));
         btn_CarSearch.setText("Search");
         btn_CarSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1814,43 +1831,49 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(CarsLayout.createSequentialGroup()
                                 .addComponent(tf_CarKM, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_CarModify, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(CarsLayout.createSequentialGroup()
                                 .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tf_CarNumberPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tf_CarSearchID, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(combox_CarLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                                    .addGroup(CarsLayout.createSequentialGroup()
+                                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tf_CarSearchID, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(combox_CarLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(CarsLayout.createSequentialGroup()
+                                        .addComponent(tf_CarNumberPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, Short.MAX_VALUE)))
+                                .addGap(53, 53, 53)
                                 .addComponent(btn_CarSearch)
-                                .addGap(100, 100, 100)
-                                .addComponent(btn_CarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(170, 170, 170))))
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CarsLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_CarRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(CarsLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
                         .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_CarDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_CarGetData, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(134, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CarsLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_CarRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(CarsLayout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn_CarDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn_CarGetData, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(198, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CarsLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_CarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_CarModify, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(282, 282, 282))))
         );
         CarsLayout.setVerticalGroup(
             CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CarsLayout.createSequentialGroup()
                 .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CarsLayout.createSequentialGroup()
-                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(CarsLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(btn_CarSearch))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CarsLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(cnpid)
-                                    .addComponent(tf_CarSearchID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(33, 33, 33)
+                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cnpid)
+                            .addComponent(tf_CarSearchID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cnp)
@@ -1861,24 +1884,25 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(combox_CarLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(CarsLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(btn_CarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_CarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_CarSearch))))
                 .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CarsLayout.createSequentialGroup()
-                        .addGap(139, 139, 139)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_CarModify, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(110, 110, 110)
                         .addComponent(btn_CarDelete)
                         .addGap(57, 57, 57)
                         .addComponent(btn_CarGetData)
                         .addGap(59, 59, 59)
                         .addComponent(btn_CarRefresh))
                     .addGroup(CarsLayout.createSequentialGroup()
-                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_CarModify, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(CarsLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(ckm)
-                                    .addComponent(tf_CarKM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(16, 16, 16)
+                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ckm)
+                            .addComponent(tf_CarKM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(13, 13, 13)
                         .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
@@ -1909,7 +1933,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         btn_HistoryRefresh.setBackground(new java.awt.Color(51, 51, 51));
         btn_HistoryRefresh.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btn_HistoryRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btn_HistoryRefresh.setForeground(new java.awt.Color(0, 0, 0));
         btn_HistoryRefresh.setText("Refresh");
         btn_HistoryRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2686,10 +2710,6 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_CarGetDataActionPerformed
 
-    private void btn_CarSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CarSearchMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_CarSearchMouseClicked
-
     private void btn_HistoryRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HistoryRefreshMouseClicked
         DefaultTableModel Modelo = new DefaultTableModel();
         Modelo = new DefaultTableModel();
@@ -2787,6 +2807,27 @@ public class MainWindow extends javax.swing.JFrame {
         TuitionCostStudent.setText(String.valueOf(tuition));
         TotalCostStudent.setText(String.valueOf(total));
     }//GEN-LAST:event_jTable_SectionsFocusGained
+
+    private void btn_CarSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CarSearchMouseClicked
+        this.tf_CarNumberPlate.setText(this.tf_CarSearchID.getText());
+        this.combox_CarLevel.setSelectedItem(DB.GetField("Car", "CarID",this.tf_CarSearchID.getText(), "Level"));
+        this.tf_CarKM.setText(DB.GetField("Car", "CarID",this.tf_CarSearchID.getText(), "Kilometers"));
+    }//GEN-LAST:event_btn_CarSearchMouseClicked
+
+    private void btn_CourseSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CourseSearchMouseClicked
+        this.tf_CourseID.setText(this.tf_CourseInputID.getText());
+        this.combox_CourseLevel.setSelectedItem(DB.GetField("Course", "CourseID",this.tf_CourseInputID.getText(), "Level"));
+        this.tf_CourseDuration.setText(DB.GetField("Course", "CourseID",this.tf_CourseInputID.getText(), "Duration"));
+        this.combox_CourseType.setSelectedItem(DB.GetField("Course", "CourseID",this.tf_CourseInputID.getText(), "Type"));
+        this.tf_CourseCost.setText(DB.GetField("Course", "CourseID",this.tf_CourseInputID.getText(), "Cost"));
+    }//GEN-LAST:event_btn_CourseSearchMouseClicked
+
+    private void btn_ExamSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ExamSearchMouseClicked
+        this.tf_ExamID.setText(this.tf_ExamInputID.getText());
+        this.combox_ExamLevel.setSelectedItem(DB.GetField("Test", "TestID",this.tf_ExamInputID.getText(), "Level"));
+        this.combox_ExamType.setSelectedItem(DB.GetField("Test", "TestID",this.tf_ExamInputID.getText(), "Type"));
+        this.tf_ExamCost.setText(DB.GetField("Test", "TestID",this.tf_ExamInputID.getText(), "Cost"));
+    }//GEN-LAST:event_btn_ExamSearchMouseClicked
 
     
     /**
