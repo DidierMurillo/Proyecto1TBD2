@@ -69,6 +69,13 @@ public class MainWindow extends javax.swing.JFrame {
         btnstudcourserefresh = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         btnTakeExam = new javax.swing.JButton();
+        Professor2 = new javax.swing.JPanel();
+        MakePaymentAccount = new javax.swing.JButton();
+        jLabel75 = new javax.swing.JLabel();
+        TotalAccount = new javax.swing.JTextField();
+        jLabel76 = new javax.swing.JLabel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jTable_Debts = new javax.swing.JTable();
         Teacher = new javax.swing.JFrame();
         Teacher_Pane = new javax.swing.JTabbedPane();
         Teacher1 = new javax.swing.JPanel();
@@ -561,6 +568,87 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         jTabbedPane_Admin1.addTab("Exams", jPanel3);
+
+        Professor2.setBackground(new java.awt.Color(0, 0, 51));
+        Professor2.setBorder(new javax.swing.border.MatteBorder(null));
+        Professor2.setForeground(java.awt.Color.white);
+
+        MakePaymentAccount.setBackground(new java.awt.Color(44, 44, 44));
+        MakePaymentAccount.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
+        MakePaymentAccount.setText("Make Payment");
+        MakePaymentAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MakePaymentAccountActionPerformed(evt);
+            }
+        });
+
+        jLabel75.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
+        jLabel75.setForeground(java.awt.Color.white);
+        jLabel75.setText("Total:");
+
+        TotalAccount.setEnabled(false);
+
+        jLabel76.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
+        jLabel76.setForeground(java.awt.Color.white);
+        jLabel76.setText("Select debt to pay it");
+
+        jTable_Debts.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jTable_Debts.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTable_DebtsFocusGained(evt);
+            }
+        });
+        jScrollPane14.setViewportView(jTable_Debts);
+
+        javax.swing.GroupLayout Professor2Layout = new javax.swing.GroupLayout(Professor2);
+        Professor2.setLayout(Professor2Layout);
+        Professor2Layout.setHorizontalGroup(
+            Professor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Professor2Layout.createSequentialGroup()
+                .addContainerGap(393, Short.MAX_VALUE)
+                .addGroup(Professor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Professor2Layout.createSequentialGroup()
+                        .addComponent(MakePaymentAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(199, 199, 199))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Professor2Layout.createSequentialGroup()
+                        .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(TotalAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(179, 179, 179))))
+            .addGroup(Professor2Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(Professor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        Professor2Layout.setVerticalGroup(
+            Professor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Professor2Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel76)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(Professor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel75)
+                    .addComponent(TotalAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addComponent(MakePaymentAccount)
+                .addContainerGap(327, Short.MAX_VALUE))
+        );
+
+        jTabbedPane_Admin1.addTab("Account Status and Payment", Professor2);
 
         javax.swing.GroupLayout StudentJFrameLayout = new javax.swing.GroupLayout(StudentJFrame.getContentPane());
         StudentJFrame.getContentPane().setLayout(StudentJFrameLayout);
@@ -1366,7 +1454,6 @@ public class MainWindow extends javax.swing.JFrame {
         eCost.setText("Cost:");
 
         btn_ExamMake.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamMake.setForeground(new java.awt.Color(0, 0, 0));
         btn_ExamMake.setText("Make Test");
         btn_ExamMake.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1395,7 +1482,6 @@ public class MainWindow extends javax.swing.JFrame {
         cCost.setText("Cost:");
 
         btn_CourseMake.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseMake.setForeground(new java.awt.Color(0, 0, 0));
         btn_CourseMake.setText("Make Course");
         btn_CourseMake.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1404,7 +1490,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_CourseModify.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseModify.setForeground(new java.awt.Color(0, 0, 0));
         btn_CourseModify.setText("Modify Course");
         btn_CourseModify.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1413,7 +1498,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_ExamModify.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamModify.setForeground(new java.awt.Color(0, 0, 0));
         btn_ExamModify.setText("Modify Test");
         btn_ExamModify.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1439,7 +1523,6 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane1.setViewportView(table_Course);
 
         btn_CourseRefresh.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseRefresh.setForeground(new java.awt.Color(0, 0, 0));
         btn_CourseRefresh.setText("Refresh");
         btn_CourseRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1461,7 +1544,6 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane2.setViewportView(table_Exam);
 
         btn_CourseDelete.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseDelete.setForeground(new java.awt.Color(0, 0, 0));
         btn_CourseDelete.setText("Delete");
         btn_CourseDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1470,7 +1552,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_ExamRefresh.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamRefresh.setForeground(new java.awt.Color(0, 0, 0));
         btn_ExamRefresh.setText("Refresh");
         btn_ExamRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1479,7 +1560,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_ExamDelete.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamDelete.setForeground(new java.awt.Color(0, 0, 0));
         btn_ExamDelete.setText("Delete");
         btn_ExamDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1488,7 +1568,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_CourseGetData.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CourseGetData.setForeground(new java.awt.Color(0, 0, 0));
         btn_CourseGetData.setText("Get Data");
         btn_CourseGetData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1497,7 +1576,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_ExamGetData.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamGetData.setForeground(new java.awt.Color(0, 0, 0));
         btn_ExamGetData.setText("Get Data");
         btn_ExamGetData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1515,7 +1593,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         btn_CourseSearch.setBackground(new java.awt.Color(102, 102, 102));
         btn_CourseSearch.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btn_CourseSearch.setForeground(new java.awt.Color(0, 0, 0));
         btn_CourseSearch.setText("Search");
         btn_CourseSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1524,7 +1601,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_ExamSearch.setBackground(new java.awt.Color(102, 102, 102));
-        btn_ExamSearch.setForeground(new java.awt.Color(0, 0, 0));
         btn_ExamSearch.setText("Search");
         btn_ExamSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1729,7 +1805,6 @@ public class MainWindow extends javax.swing.JFrame {
         ckm.setText("Kilometers:");
 
         btn_CarAdd.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CarAdd.setForeground(new java.awt.Color(0, 0, 0));
         btn_CarAdd.setText("Add Car");
         btn_CarAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1738,7 +1813,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_CarModify.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CarModify.setForeground(new java.awt.Color(0, 0, 0));
         btn_CarModify.setText("Modify Car");
         btn_CarModify.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1760,7 +1834,6 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane11.setViewportView(table_Car);
 
         btn_CarDelete.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CarDelete.setForeground(new java.awt.Color(0, 0, 0));
         btn_CarDelete.setText("Delete");
         btn_CarDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1769,7 +1842,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_CarRefresh.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CarRefresh.setForeground(new java.awt.Color(0, 0, 0));
         btn_CarRefresh.setText("Refresh");
         btn_CarRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1783,7 +1855,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btn_CarGetData.setBackground(new java.awt.Color(102, 102, 102));
-        btn_CarGetData.setForeground(new java.awt.Color(0, 0, 0));
         btn_CarGetData.setText("Get Data");
         btn_CarGetData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1806,7 +1877,6 @@ public class MainWindow extends javax.swing.JFrame {
         cnpid.setForeground(new java.awt.Color(255, 255, 255));
         cnpid.setText("Input Number Plate:");
 
-        btn_CarSearch.setForeground(new java.awt.Color(0, 0, 0));
         btn_CarSearch.setText("Search");
         btn_CarSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1933,7 +2003,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         btn_HistoryRefresh.setBackground(new java.awt.Color(51, 51, 51));
         btn_HistoryRefresh.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btn_HistoryRefresh.setForeground(new java.awt.Color(0, 0, 0));
         btn_HistoryRefresh.setText("Refresh");
         btn_HistoryRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2187,7 +2256,8 @@ public class MainWindow extends javax.swing.JFrame {
         StudentAddressStudent.setText(DB.GetField("Student", "ID", studentID, "Address"));
         DefaultTableModel Modelo = new DefaultTableModel();
         Modelo.addColumn("License");
-       System.out.print(DB.GetBoolField("Student", "ID", studentID, "TeoricalTest"));
+        
+        System.out.print(DB.GetBoolField("Student", "ID", studentID, "TeoricalTest"));
         if (!DB.GetBoolField("Student", "ID", studentID, "TeoricalTest")){
             Combo_EnrollClasses.addItem("Theoretical");             
         } else{
@@ -2195,7 +2265,15 @@ public class MainWindow extends javax.swing.JFrame {
             Combo_EnrollClasses.addItem("Practical");
         }
         jTable_StudentsLicenses.setModel(DB.GetLicenseDocuments(Modelo, studentID));
-        
+        refreshTableDebts();
+    }
+    
+    private void refreshTableDebts(){
+        DefaultTableModel Modelo2 = new DefaultTableModel();
+        Modelo2.addColumn("ID");
+        Modelo2.addColumn("Description");
+        Modelo2.addColumn("Amount");
+        jTable_Debts.setModel(DB.GetStudentDebt(Modelo2, studentID));
     }
     private boolean refreshTeacherCourses(String TempUserID)
     {
@@ -2769,12 +2847,13 @@ public class MainWindow extends javax.swing.JFrame {
         String className = String.valueOf(tm.getValueAt(jTable_Sections.getSelectedRow(),5));
         if (DB.AddStudentCourse(studentID, courseID)){
             JOptionPane.showMessageDialog(this, "Class Added Successfully!");
-            DB.AddStudentDebit(studentID, Double.valueOf(TuitionCostStudent.getText()), "Tuition Of " + Combo_EnrollClasses.getSelectedItem().toString(), "Pendiente");
-            DB.AddStudentDebit(studentID, Double.valueOf(classCost), "Class " + className, "Pendiente");
+            DB.AddStudentDebit(studentID, Double.valueOf(TuitionCostStudent.getText()), "Tuition Of " + className);
+            DB.AddStudentDebit(studentID, Double.valueOf(classCost), "Class " + className);
             Combo_EnrollClasses.setSelectedIndex(0);
             jTable_Sections.removeAll();
             TuitionCostStudent.setText("");
             TotalCostStudent.setText("");
+            refreshTableDebts();
         }
     }//GEN-LAST:event_AddClassStudentActionPerformed
 
@@ -2828,6 +2907,17 @@ public class MainWindow extends javax.swing.JFrame {
         this.combox_ExamType.setSelectedItem(DB.GetField("Test", "TestID",this.tf_ExamInputID.getText(), "Type"));
         this.tf_ExamCost.setText(DB.GetField("Test", "TestID",this.tf_ExamInputID.getText(), "Cost"));
     }//GEN-LAST:event_btn_ExamSearchMouseClicked
+
+    private void MakePaymentAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MakePaymentAccountActionPerformed
+        DefaultTableModel tm = (DefaultTableModel) jTable_Debts.getModel();
+        String ID = String.valueOf(tm.getValueAt(jTable_Debts.getSelectedRow(),0));
+        DB.ModifyDebitDocument(ID);
+        refreshTableDebts();
+    }//GEN-LAST:event_MakePaymentAccountActionPerformed
+
+    private void jTable_DebtsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable_DebtsFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable_DebtsFocusGained
 
     
     /**
@@ -2886,10 +2976,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem GetCourse;
     private javax.swing.JMenuItem GetTest;
     private javax.swing.JPanel History;
+    private javax.swing.JButton MakePaymentAccount;
     private javax.swing.JButton ModifyTeacher;
     private javax.swing.JPopupMenu Popup_DeleteCourse;
     private javax.swing.JPanel Professor;
     private javax.swing.JPanel Professor1;
+    private javax.swing.JPanel Professor2;
     private javax.swing.JButton SearchTeacher;
     private javax.swing.JTextField SearchTeacherID;
     private javax.swing.JPanel Student;
@@ -2922,6 +3014,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField TeacherPhonetxt;
     private javax.swing.JTabbedPane Teacher_Pane;
     private javax.swing.JPanel Test_Class;
+    private javax.swing.JTextField TotalAccount;
     private javax.swing.JTextField TotalCostStudent;
     private javax.swing.JTextField TuitionCostStudent;
     private javax.swing.JPopupMenu ViewCar;
@@ -3009,6 +3102,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem_DeleteCourse;
     private javax.swing.JMenuItem jMenuItem_DeleteStudent;
@@ -3023,6 +3118,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3041,6 +3137,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTable jTable_AssignCar;
     private javax.swing.JTable jTable_AssignCourse;
     private javax.swing.JTable jTable_AssignTest;
+    private javax.swing.JTable jTable_Debts;
     private javax.swing.JTable jTable_Sections;
     private javax.swing.JTable jTable_Students;
     private javax.swing.JTable jTable_StudentsLicenses;

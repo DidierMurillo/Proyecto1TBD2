@@ -578,22 +578,43 @@ public class ConnectToDB {
         return true;
     }
     
-    public boolean AddStudentDebit(String StudentID, double amount, String description, String state){
+    public boolean AddStudentDebit(String StudentID, double amount, String description){
+        Date date = new Date();
+        DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
         MongoCollection<Document> collection = database.getCollection("Debit");
-        Document document = new Document("New Student-Class", "MongoDB") 
-        .append("ID", StudentID + description)
+        Document document = new Document("New Student-Debt", "MongoDB") 
+        .append("ID", StudentID + hourFormat.format(date))
         .append("StudentID", StudentID)
         .append("Amount", amount)
         .append("Description", description)
-        .append("State", state);
+        .append("State", "Pendiente");
         collection.insertOne(document);
-        HistoryData("Debit Added", "StudentID: " + StudentID + " " + amount + " " + state);
+        HistoryData("Debit Added", "StudentID: " + StudentID + " " + amount + " Pendiente");
         return true;
     }
     
-    public boolean ModifyDebitDocument(String ID, String state){
-      MongoCollection<Document> collection = database.getCollection("Student");
-      collection.updateOne(Filters.eq("ID",ID), Updates.set("State",state));
+    public DefaultTableModel GetStudentDebt(DefaultTableModel Model, String StudentID){
+        String[] Results = new String[8];
+        MongoCollection<Document> collection = database.getCollection("Debit");
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("StudentID",StudentID)).projection(Projections.excludeId());
+        MongoCursor<Document> it = iterDoc.iterator();
+        Document Temp=new Document();
+        while(it.hasNext()){
+            Temp=it.next();
+            Results[0]=Temp.getString("ID");
+            Results[1]=Temp.getString("Description");
+            Results[2] = Temp.getDouble("Amount").toString();
+            String state = Temp.getString("State");
+            if (state.equals("Pendiente")){
+                Model.addRow(Results);
+            }
+        }
+        return Model;
+    }
+    
+    public boolean ModifyDebitDocument(String ID){
+      MongoCollection<Document> collection = database.getCollection("Debit");
+      collection.updateOne(Filters.eq("ID",ID), Updates.set("State","Pagado"));
       return true;
     }
     
