@@ -575,6 +575,7 @@ public class ConnectToDB {
         .append("StudentID",StudentID)
         .append("CourseID", CourseID);
         collection.insertOne(document);
+        HistoryData("Student Added in Course", "StudentID: " + StudentID + " Course" + CourseID);
         return true;
     }
     
