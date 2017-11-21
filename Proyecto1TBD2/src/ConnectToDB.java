@@ -31,8 +31,8 @@ public class ConnectToDB {
       database.createCollection("Course");
       database.createCollection("Debit");
       database.createCollection("Car");
-      database.createCollection("Student-Class");
       */
+      //database.createCollection("Student-Class");
     }
     
     public String VerifyUser(String Username,String Password){
@@ -159,7 +159,7 @@ public class ConnectToDB {
         }
         return Model;
     }
-    
+   
     //Teacher and Assigns
     public boolean AddTeacherDocument(String ID,String Name,String PhoneNumber,String Level){
         MongoCollection<Document> collection = database.getCollection("Teacher");
@@ -535,4 +535,81 @@ public class ConnectToDB {
         return Model;
     }
     
+    public DefaultTableModel GetLicenseDocuments(DefaultTableModel Model, String IDStudent){
+        String[] Results = new String[8];
+        MongoCollection<Document> collection = database.getCollection("License");
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("ID Student",IDStudent)).projection(Projections.excludeId());
+        MongoCursor<Document> it = iterDoc.iterator();
+        Document Temp=new Document();
+        while(it.hasNext()){
+            Temp=it.next();
+            Results[0]=Temp.getString("Type");
+            Model.addRow(Results);
+        }
+        return Model;
+    }
+    
+    public DefaultTableModel GetSections(DefaultTableModel Model, String type){
+        String[] Results = new String[8];
+        MongoCollection<Document> collection = database.getCollection("Course");
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("Type",type)).projection(Projections.excludeId());
+        MongoCursor<Document> it = iterDoc.iterator();
+        Document Temp=new Document();
+        while(it.hasNext()){
+            Temp=it.next();
+            Results[0]=Temp.getString("TeacherID");
+            Results[1] = Temp.getString("CourseID");
+            Results[2] = Temp.getString("Level");
+            Results[3] = Temp.getString("Duration");
+            Results[4] = Temp.getDouble("Cost").toString();
+            Results[5] = Temp.getString("Level");
+            Model.addRow(Results);
+        }
+        return Model;
+    }
+    
+    public boolean AddStudentCourse(String StudentID, String CourseID){
+        MongoCollection<Document> collection = database.getCollection("StudentInClass");
+        Document document = new Document("New Student-Class", "MongoDB") 
+        .append("ID", StudentID + CourseID)
+        .append("StudentID",StudentID)
+        .append("CourseID", CourseID);
+        collection.insertOne(document);
+        return true;
+    }
+    
+    public boolean AddStudentDebit(String StudentID, double amount, String description, String state){
+        MongoCollection<Document> collection = database.getCollection("Debit");
+        Document document = new Document("New Student-Class", "MongoDB") 
+        .append("ID", StudentID + description)
+        .append("StudentID", StudentID)
+        .append("Amount", amount)
+        .append("Description", description)
+        .append("State", state);
+        collection.insertOne(document);
+        HistoryData("Debit Added", "StudentID: " + StudentID + " " + amount + " " + state);
+        return true;
+    }
+    
+    public boolean ModifyDebitDocument(String ID, String state){
+      MongoCollection<Document> collection = database.getCollection("Student");
+      collection.updateOne(Filters.eq("ID",ID), Updates.set("State",state));
+      return true;
+    }
+    
+    public boolean GetBoolField(String Collection,String KeyName,String Key,String FieldName){
+        MongoCollection<Document> collection = database.getCollection(Collection);
+        Document document = collection
+            .find(new BasicDBObject(KeyName,Key))
+             .projection(Projections.fields(Projections.include(FieldName), Projections.excludeId())).first();
+        return document.getBoolean(FieldName);
+    }
+    
+    public double GetDoubleField(String Collection,String KeyName,String Key,String FieldName){
+        MongoCollection<Document> collection = database.getCollection(Collection);
+        Document document = collection
+            .find(new BasicDBObject(KeyName,Key))
+             .projection(Projections.fields(Projections.include(FieldName), Projections.excludeId())).first();
+        return document.getDouble(FieldName);
+    }
 } 
