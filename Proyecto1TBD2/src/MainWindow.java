@@ -2850,10 +2850,10 @@ public class MainWindow extends javax.swing.JFrame {
             DB.AddStudentDebit(studentID, Double.valueOf(TuitionCostStudent.getText()), "Tuition Of " + className);
             DB.AddStudentDebit(studentID, Double.valueOf(classCost), "Class " + className);
             Combo_EnrollClasses.setSelectedIndex(0);
-            jTable_Sections.removeAll();
             TuitionCostStudent.setText("");
             TotalCostStudent.setText("");
             refreshTableDebts();
+            jTable_Sections.removeAll();
         }
     }//GEN-LAST:event_AddClassStudentActionPerformed
 

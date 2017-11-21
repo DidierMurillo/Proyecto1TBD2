@@ -583,7 +583,7 @@ public class ConnectToDB {
         DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
         MongoCollection<Document> collection = database.getCollection("Debit");
         Document document = new Document("New Student-Debt", "MongoDB") 
-        .append("ID", StudentID + hourFormat.format(date))
+        .append("ID", StudentID + description + hourFormat.format(date))
         .append("StudentID", StudentID)
         .append("Amount", amount)
         .append("Description", description)
@@ -615,6 +615,7 @@ public class ConnectToDB {
     public boolean ModifyDebitDocument(String ID){
       MongoCollection<Document> collection = database.getCollection("Debit");
       collection.updateOne(Filters.eq("ID",ID), Updates.set("State","Pagado"));
+      HistoryData("Debit Paid", "ID: " + ID + " State: Pagado   ");
       return true;
     }
     
