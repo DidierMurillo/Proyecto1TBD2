@@ -71,8 +71,6 @@ public class MainWindow extends javax.swing.JFrame {
         btnTakeExam = new javax.swing.JButton();
         Professor2 = new javax.swing.JPanel();
         MakePaymentAccount = new javax.swing.JButton();
-        jLabel75 = new javax.swing.JLabel();
-        TotalAccount = new javax.swing.JTextField();
         jLabel76 = new javax.swing.JLabel();
         jScrollPane14 = new javax.swing.JScrollPane();
         jTable_Debts = new javax.swing.JTable();
@@ -582,12 +580,6 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel75.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
-        jLabel75.setForeground(java.awt.Color.white);
-        jLabel75.setText("Total:");
-
-        TotalAccount.setEnabled(false);
-
         jLabel76.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
         jLabel76.setForeground(java.awt.Color.white);
         jLabel76.setText("Select debt to pay it");
@@ -615,16 +607,9 @@ public class MainWindow extends javax.swing.JFrame {
         Professor2Layout.setHorizontalGroup(
             Professor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Professor2Layout.createSequentialGroup()
-                .addContainerGap(393, Short.MAX_VALUE)
-                .addGroup(Professor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Professor2Layout.createSequentialGroup()
-                        .addComponent(MakePaymentAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(199, 199, 199))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Professor2Layout.createSequentialGroup()
-                        .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(TotalAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(179, 179, 179))))
+                .addContainerGap(470, Short.MAX_VALUE)
+                .addComponent(MakePaymentAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(199, 199, 199))
             .addGroup(Professor2Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addGroup(Professor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -639,11 +624,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jLabel76)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(Professor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel75)
-                    .addComponent(TotalAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGap(80, 80, 80)
                 .addComponent(MakePaymentAccount)
                 .addContainerGap(327, Short.MAX_VALUE))
         );
@@ -3014,7 +2995,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField TeacherPhonetxt;
     private javax.swing.JTabbedPane Teacher_Pane;
     private javax.swing.JPanel Test_Class;
-    private javax.swing.JTextField TotalAccount;
     private javax.swing.JTextField TotalCostStudent;
     private javax.swing.JTextField TuitionCostStudent;
     private javax.swing.JPopupMenu ViewCar;
@@ -3102,7 +3082,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem_DeleteCourse;
