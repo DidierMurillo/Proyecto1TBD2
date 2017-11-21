@@ -652,6 +652,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Select debt to pay it"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jLabel76FocusGained"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane14">
                   <AuxValues>
@@ -671,6 +674,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTable_DebtsFocusGained"/>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTable_DebtsFocusLost"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -2389,6 +2393,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_ExamMakeMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ExamMakeActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator7">
@@ -2711,17 +2716,9 @@
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="tf_CarSearchID" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                                                      <Component id="combox_CarLevel" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="tf_CarNumberPlate" min="-2" pref="225" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="32767" attributes="0"/>
-                                              </Group>
+                                              <Component id="tf_CarSearchID" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                                              <Component id="combox_CarLevel" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
+                                              <Component id="tf_CarNumberPlate" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                           <Component id="btn_CarSearch" min="-2" max="-2" attributes="0"/>
@@ -2734,10 +2731,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btn_CarRefresh" min="-2" pref="133" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="btn_CarRefresh" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -2746,10 +2740,9 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="198" max="32767" attributes="0"/>
+                                  <EmptySpace pref="213" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="btn_CarAdd" min="-2" pref="100" max="-2" attributes="0"/>
                                       <Component id="btn_CarModify" min="-2" pref="100" max="-2" attributes="0"/>

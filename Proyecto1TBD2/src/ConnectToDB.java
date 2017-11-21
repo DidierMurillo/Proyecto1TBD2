@@ -134,7 +134,7 @@ public class ConnectToDB {
     public DefaultTableModel GetStudentCourses(DefaultTableModel Model, String Student_id){
         String[] Results=new String[8];
         String Course_id="";
-        MongoCollection<Document> collection = database.getCollection("Student-Class");
+        MongoCollection<Document> collection = database.getCollection("StudentInClass");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("StudentID", Student_id)).projection(Projections.excludeId());
         //MongoCollection<Document> collectionb = database.getCollection("Course");
         MongoCursor<Document> it = iterDoc.iterator();
@@ -549,7 +549,7 @@ public class ConnectToDB {
         return Model;
     }
     
-    public DefaultTableModel GetSections(DefaultTableModel Model, String type){
+    public DefaultTableModel GetSections(DefaultTableModel Model, String type, String StudentID){
         String[] Results = new String[8];
         MongoCollection<Document> collection = database.getCollection("Course");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("Type",type)).projection(Projections.excludeId());
@@ -562,22 +562,37 @@ public class ConnectToDB {
             Results[2] = Temp.getString("Level");
             Results[3] = Temp.getString("Duration");
             Results[4] = Temp.getDouble("Cost").toString();
-            Results[5] = Temp.getString("Level");
+            Results[5] = Temp.getString("Type");
+            if(!ExistStudentCourse(StudentID, Results[1]))
             Model.addRow(Results);
         }
         return Model;
     }
     
+    public boolean ExistStudentCourse(String StudentID, String CourseID){
+        String[] Results = new String[8];
+        MongoCollection<Document> collection = database.getCollection("StudentInClass");
+        FindIterable<Document> iterDoc=collection.find(Filters.eq("ID", StudentID + CourseID)).projection(Projections.excludeId());
+        MongoCursor<Document> it = iterDoc.iterator();
+        Document Temp=new Document();
+        while(it.hasNext()){
+            return true;
+        }
+        return false;
+    }
     public boolean AddStudentCourse(String StudentID, String CourseID){
         MongoCollection<Document> collection = database.getCollection("StudentInClass");
-        Document document = new Document("New Student-Class", "MongoDB") 
+        Document document = new Document("New Student-Class", "MongoDB")    
         .append("ID", StudentID + CourseID)
         .append("StudentID",StudentID)
-        .append("CourseID", CourseID);
+        .append("CourseID", CourseID)
+        .append("Attempts", 0)
+        .append("State", "Active");
         collection.insertOne(document);
         HistoryData("Student Added in Course", "StudentID: " + StudentID + " Course" + CourseID);
         return true;
     }
+    
     
     public boolean AddStudentDebit(String StudentID, double amount, String description){
         Date date = new Date();
@@ -618,6 +633,12 @@ public class ConnectToDB {
       collection.updateOne(Filters.eq("ID",ID), Updates.set("State","Pagado"));
       HistoryData("Debit Paid", "ID: " + ID + " State: Pagado   ");
       return true;
+    }
+    
+    public void ModifyTestAttempts(String ID){
+      MongoCollection<Document> collection = database.getCollection("Student-Class");
+      collection.updateOne(Filters.eq("ID",ID), Updates.set("Attempts",3));
+      HistoryData("Test Paid", "ID: " + ID + " State: Pagado Attempts: " + 3);
     }
     
     public boolean GetBoolField(String Collection,String KeyName,String Key,String FieldName){

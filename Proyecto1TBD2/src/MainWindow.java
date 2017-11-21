@@ -583,6 +583,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel76.setFont(new java.awt.Font("TlwgTypewriter", 1, 15)); // NOI18N
         jLabel76.setForeground(java.awt.Color.white);
         jLabel76.setText("Select debt to pay it");
+        jLabel76.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jLabel76FocusGained(evt);
+            }
+        });
 
         jTable_Debts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -598,6 +603,9 @@ public class MainWindow extends javax.swing.JFrame {
         jTable_Debts.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTable_DebtsFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTable_DebtsFocusLost(evt);
             }
         });
         jScrollPane14.setViewportView(jTable_Debts);
@@ -1441,6 +1449,11 @@ public class MainWindow extends javax.swing.JFrame {
                 btn_ExamMakeMouseClicked(evt);
             }
         });
+        btn_ExamMake.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ExamMakeActionPerformed(evt);
+            }
+        });
 
         cid.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
         cid.setForeground(new java.awt.Color(255, 255, 255));
@@ -1885,14 +1898,9 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(CarsLayout.createSequentialGroup()
                                 .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(CarsLayout.createSequentialGroup()
-                                        .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tf_CarSearchID, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(combox_CarLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(CarsLayout.createSequentialGroup()
-                                        .addComponent(tf_CarNumberPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, Short.MAX_VALUE)))
+                                    .addComponent(tf_CarSearchID, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(combox_CarLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_CarNumberPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(53, 53, 53)
                                 .addComponent(btn_CarSearch)
                                 .addGap(170, 170, 170))))
@@ -1900,17 +1908,14 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CarsLayout.createSequentialGroup()
                         .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CarsLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_CarRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btn_CarRefresh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(CarsLayout.createSequentialGroup()
                                 .addGap(61, 61, 61)
                                 .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btn_CarDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btn_CarGetData, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(198, Short.MAX_VALUE))
+                        .addContainerGap(213, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CarsLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(CarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btn_CarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_CarModify, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2256,6 +2261,12 @@ public class MainWindow extends javax.swing.JFrame {
         Modelo2.addColumn("Amount");
         jTable_Debts.setModel(DB.GetStudentDebt(Modelo2, studentID));
     }
+    
+    private void refreshTableSections(){
+        DefaultTableModel Modelo2 = new DefaultTableModel();
+        jTable_Sections.setModel(Modelo2);
+    }
+    
     private boolean refreshTeacherCourses(String TempUserID)
     {
         DefaultTableModel Modelo = new DefaultTableModel();
@@ -2296,6 +2307,7 @@ public class MainWindow extends javax.swing.JFrame {
         int Row = StudentCoursesStatetbl.getSelectedRow();
         String Course_id = StudentCoursesStatetbl.getValueAt(Row, 0).toString();
         String Course_State = StudentCoursesStatetbl.getValueAt(Row, 2).toString();
+        String level = StudentCoursesStatetbl.getValueAt(Row, 3).toString();
         if(Course_State!="Exams"||StudentCoursesStatetbl.getValueAt(Row,6).toString()=="true"
                 ||StudentCoursesStatetbl.getValueAt(Row,6).toString()=="0")
         {
@@ -2830,11 +2842,12 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Class Added Successfully!");
             DB.AddStudentDebit(studentID, Double.valueOf(TuitionCostStudent.getText()), "Tuition Of " + className);
             DB.AddStudentDebit(studentID, Double.valueOf(classCost), "Class " + className);
+            DB.AddStudentDebit(studentID, Double.valueOf(classCost), "Test " + className);
             Combo_EnrollClasses.setSelectedIndex(0);
             TuitionCostStudent.setText("");
             TotalCostStudent.setText("");
             refreshTableDebts();
-            jTable_Sections.removeAll();
+            refreshTableSections();
         }
     }//GEN-LAST:event_AddClassStudentActionPerformed
 
@@ -2849,11 +2862,11 @@ public class MainWindow extends javax.swing.JFrame {
         Modelo2.addColumn("Level");
         Modelo2.addColumn("Duration");
         Modelo2.addColumn("Cost");
-        Modelo2.addColumn("Level");
+        Modelo2.addColumn("Type");
         if (Combo_EnrollClasses.getSelectedItem().toString().equals("Theoretical")){
-            jTable_Sections.setModel(DB.GetSections(Modelo2, "Theoretical"));
+            jTable_Sections.setModel(DB.GetSections(Modelo2, "Theoretical", studentID));
         } else if (Combo_EnrollClasses.getSelectedItem().toString().equals("Practical")){
-            jTable_Sections.setModel(DB.GetSections(Modelo2, "Practical"));
+            jTable_Sections.setModel(DB.GetSections(Modelo2, "Practical", studentID));
         }
     }//GEN-LAST:event_Combo_EnrollClassesActionPerformed
 
@@ -2892,13 +2905,32 @@ public class MainWindow extends javax.swing.JFrame {
     private void MakePaymentAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MakePaymentAccountActionPerformed
         DefaultTableModel tm = (DefaultTableModel) jTable_Debts.getModel();
         String ID = String.valueOf(tm.getValueAt(jTable_Debts.getSelectedRow(),0));
-        DB.ModifyDebitDocument(ID);
+        String description = String.valueOf(tm.getValueAt(jTable_Debts.getSelectedRow(),1));
+        if(DB.ModifyDebitDocument(ID)){
+            JOptionPane.showMessageDialog(this, "Thank you for your payment!");
+        
+        }
+        if (description.contains("Test")){
+            DB.ModifyTestAttempts(ID);
+        }
         refreshTableDebts();
     }//GEN-LAST:event_MakePaymentAccountActionPerformed
 
     private void jTable_DebtsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable_DebtsFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable_DebtsFocusGained
+
+    private void btn_ExamMakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExamMakeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ExamMakeActionPerformed
+
+    private void jLabel76FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel76FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel76FocusGained
+
+    private void jTable_DebtsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable_DebtsFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable_DebtsFocusLost
 
     
     /**
