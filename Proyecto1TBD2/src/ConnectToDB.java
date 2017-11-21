@@ -134,7 +134,7 @@ public class ConnectToDB {
     public DefaultTableModel GetStudentCourses(DefaultTableModel Model, String Student_id){
         String[] Results=new String[8];
         String Course_id="";
-        MongoCollection<Document> collection = database.getCollection("StudentInClass");
+        MongoCollection<Document> collection = database.getCollection("Student-Class");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("StudentID", Student_id)).projection(Projections.excludeId());
         //MongoCollection<Document> collectionb = database.getCollection("Course");
         MongoCursor<Document> it = iterDoc.iterator();
@@ -571,7 +571,7 @@ public class ConnectToDB {
     
     public boolean ExistStudentCourse(String StudentID, String CourseID){
         String[] Results = new String[8];
-        MongoCollection<Document> collection = database.getCollection("StudentInClass");
+        MongoCollection<Document> collection = database.getCollection("Student-Class");
         FindIterable<Document> iterDoc=collection.find(Filters.eq("ID", StudentID + CourseID)).projection(Projections.excludeId());
         MongoCursor<Document> it = iterDoc.iterator();
         Document Temp=new Document();
@@ -581,7 +581,7 @@ public class ConnectToDB {
         return false;
     }
     public boolean AddStudentCourse(String StudentID, String CourseID){
-        MongoCollection<Document> collection = database.getCollection("StudentInClass");
+        MongoCollection<Document> collection = database.getCollection("Student-Class");
         Document document = new Document("New Student-Class", "MongoDB")    
         .append("ID", StudentID + CourseID)
         .append("StudentID",StudentID)
